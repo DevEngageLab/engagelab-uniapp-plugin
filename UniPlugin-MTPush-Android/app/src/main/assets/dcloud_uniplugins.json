@@ -1,0 +1,42 @@
+{
+  "nativePlugins": [
+    {
+      "plugins": [
+        {
+          "type": "module",
+          "name": "TestModule",
+          "class": "io.dcloud.uniplugin.TestModule"
+        }
+      ]
+    },
+    {
+      "plugins": [
+        {
+          "type": "component",
+          "name": "myText",
+          "class": "io.dcloud.uniplugin.TestText"
+        }
+      ]
+    },
+    {
+      "hooksClass": "",
+      "plugins": [
+        {
+          "type": "module",
+          "name": "DCloud-RichAlert",
+          "class": "uni.dcloud.io.uniplugin_richalert.RichAlertModule"
+        }
+      ]
+    },
+    {
+      "hooksClass": "",
+      "plugins": [
+        {
+          "type": "module",
+          "name": "EL-MTPush",
+          "class": "cn.engagelab.uniplugin_mtpush.MTPushModule"
+        }
+      ]
+    }
+  ]
+}

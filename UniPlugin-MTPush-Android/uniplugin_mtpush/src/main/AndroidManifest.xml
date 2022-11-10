@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.engagelab.uniplugin_mtpush">
+
+    <!-- 必须，网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 可选，通知震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application>
+
+            <service
+                android:name="cn.engagelab.uniplugin_mtpush.receiver.MTUserService"
+                android:exported="false"
+                android:process=":remote">
+<!--                android:process="${ENGAGELAB_PRIVATES_PROCESS}">-->
+                <intent-filter>
+                    <action android:name="com.engagelab.privates.intent.USER_SERVICE" />
+                </intent-filter>
+            </service>
+
+        <receiver
+            android:name="cn.engagelab.uniplugin_mtpush.receiver.MTPushModuleReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.engagelab.privates.intent.USER_RECEIVER" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
