@@ -173,48 +173,6 @@ Android:仅支持华为
 mtpushModule.setBadge(10)
 ```
 
-## 设置手机号码
-
-### API - setMobileNumber(Object)
-设置手机号码后，可实现“推送不到短信到”的通知方式，提高推送达到率。
-
-#### 参数说明
-
-- Object
-
-|参数名称|参数类型|参数说明|
-|:-----:|:----:|:-----:|
-|mobileNumber|string|手机号码 会与用户信息一一对应。可为空，为空则清除号码。|
-|sequence|number|请求时传入的序列号,会在回调时原样返回|
-
-
-#### 示例
-```javascript
-mtpushModule.setMobileNumber({
-					mobileNumber: '15889230000'
-				})
-```
-
-## 设置手机号码回调
-
-### API - addMobileNumberListener(CALLBACK)
-
-#### 参数说明
-
-- CALLBACK
-
-|参数名称|参数类型|参数说明|
-|:-----:|:----:|:-----:|
-|code|number|状态码 0 - 成功|
-|sequence|number|请求时传入的序列号,会在回调时原样返回|
-
-#### 示例
-```javascript
-mtpushModule.addMobileNumberListener(result=>{
-		let code = result.code
-	})
-```
-
 
 ## 错误码
 

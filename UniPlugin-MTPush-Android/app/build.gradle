@@ -1,10 +1,18 @@
-apply plugin: 'com.android.application'
+//apply plugin: 'com.android.application'
+
+plugins {
+    id 'com.android.application'
+//    // google push need，不需要 google 通道，则删除
+//    id 'com.google.gms.google-services'
+//    // huawei push need，不需要 huawei 通道，则删除
+//    id 'com.huawei.agconnect'
+}
 
 android {
     compileSdkVersion 29
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.engagelab.app"
+        applicationId "com.jiguang.oaapp"
         minSdkVersion 21
         targetSdkVersion 26 //建议此属性值设为21 io.dcloud.PandoraEntry 作为apk入口时   必须设置 targetSDKVersion>=21 沉浸式才生效
 
@@ -19,13 +27,43 @@ android {
             targetCompatibility JavaVersion.VERSION_1_8
         }
 
+        // fa88db66d2a2f590d1222374  com.engagelab.app 正式环境
         manifestPlaceholders = [
                 // Engagelab appKey，需要与Engagelab控制台上的一样，与packageName是一对一关系
-                ENGAGELAB_PRIVATES_APPKEY : "fa88db66d2a2f590d1222374",
+                ENGAGELAB_PRIVATES_APPKEY : "7cf23c8544b73e7ea3b58e02",
                 // Engagelab appChannel，用于渠道统计
                 ENGAGELAB_PRIVATES_CHANNEL: "developer",
                 // Engagelab process，Engagelabsdk工作所在的进程，注意:开头
-                ENGAGELAB_PRIVATES_PROCESS: ":remote"
+                ENGAGELAB_PRIVATES_PROCESS: ":remote",
+                // mi client 配置，需要与小米控制台上的一样，还需要在AURORA控制台配置 server 配置
+//                XIAOMI_APPID            : "MI-2882303761519903247",
+//                XIAOMI_APPKEY           : "MI-5511990317247",
+                XIAOMI_APPID            : "MI-2882303761520101761",
+                XIAOMI_APPKEY           : "MI-5902010197761",
+                // mi global client 配置，需要与小米控制台上的一样，还需要在AURORA控制台配置 server 配置
+//                XIAOMI_GLOBAL_APPID            : "MI-2882303761520426107",
+//                XIAOMI_GLOBAL_APPKEY           : "MI-5152042627107",
+                XIAOMI_GLOBAL_APPID            : "MI-2882303761520426107",
+                XIAOMI_GLOBAL_APPKEY           : "MI-5152042627107",
+                // mz client 配置，需要与魅族控制台上的一样，还需要在AURORA控制台配置 server 配置
+//                MEIZU_APPID             : "MZ-141044",
+//                MEIZU_APPKEY            : "MZ-db66ddbf3caa49f5a3d61281b62f9172",
+                MEIZU_APPID             : "MZ-124855",
+                MEIZU_APPKEY            : "MZ-32a51597a3774f55a52dd436baebee41s",
+                // oppo client 配置，需要与oppo控制台上的一样，还需要在AURORA控制台配置 server 配置
+//                OPPO_APPID              : "OP-30527975",
+//                OPPO_APPKEY             : "OP-ccaa93f426af4b05b529bb4e2a3b368b",
+//                OPPO_APPSECRET          : "OP-6da40dca7fd64279a6837ec899f2151d",
+                OPPO_APPID              : "OP-30527975--1111",
+                OPPO_APPKEY             : "OP-ccaa93f426af4b05b529bb4e2a3b368b",
+                OPPO_APPSECRET          : "OP-6da40dca7fd64279a6837ec899f2151d",
+                // vivo client 配置，需要与vivo控制台上的一样，还需要在AURORA控制台配置 server 配置
+                VIVO_APPID              : "105481245",
+                VIVO_APPKEY             : "8ce86005c2bc8a4db5178210b51eeb8a",
+                // honor client 配置，需要与honor控制台上的一样，还需要在AURORA控制台配置 server 配置
+                HONOR_APPID            : "220603327"
+
+
         ]
     }
 
@@ -54,6 +92,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // google push need java 1.8，不需要 google 通道，则删除
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     //使用uniapp时，需复制下面代码
     /*代码开始*/
     aaptOptions {
@@ -72,8 +117,22 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation fileTree(dir: 'libs', include: ['*.aar'])
 
+//    // google push need
+//    implementation 'com.google.firebase:firebase-messaging:23.0.8'
+//
+//    // huawei push need
+//    implementation 'com.huawei.hms:base:6.2.0.300'
+//    implementation 'com.huawei.hms:push:6.1.0.300'
+//    implementation 'com.huawei.hms:push:6.5.0.300'
+//
+//    //oppo以下依赖都需要添加，不需要 oppo 通道，则删除
+//    implementation 'com.google.code.gson:gson:2.6.2'
+//    implementation 'commons-codec:commons-codec:1.6'
+//    implementation 'androidx.annotation:annotation:1.1.0'
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.0.0'
+
 
     /*uniapp所需库-----------------------开始*/
     implementation 'androidx.recyclerview:recyclerview:1.0.0'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.engagelab.app">
+    package="com.jiguang.oaapp">
 
     <supports-screens
         android:anyDensity="true"
@@ -90,7 +90,24 @@
         </activity>
         <meta-data
             android:name="dcloud_appkey"
-            android:value="aa7a5ef7eb1e7da87a382ba111d23c64" />
+            android:value="e49f38ee04b2d9e561acab0d169769f2" />
+
+
+        <meta-data
+            android:name="google_api_key"
+            android:value="g-111" />
+        <meta-data
+            android:name="google_app_id"
+            android:value="g-222" />
+        <meta-data
+            android:name="gcm_defaultSenderId"
+            android:value="g-333" />
+        <meta-data
+            android:name="project_id"
+            android:value="g-444" />
+        <meta-data
+            android:name="google_storage_bucket"
+            android:value="g-555" />
 
     </application>
 

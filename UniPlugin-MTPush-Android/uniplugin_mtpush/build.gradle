@@ -32,6 +32,7 @@ repositories {
 
 dependencies {
 
+
     //必须添加的依赖
     compileOnly 'androidx.recyclerview:recyclerview:1.0.0'
     compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'

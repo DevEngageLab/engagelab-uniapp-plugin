@@ -30,7 +30,7 @@
 		
 		data() {
 			return {
-				connectStatus: '未链接',
+				connectStatus: '未连接',
 				registrationID: '未获得'
 			}
 		},

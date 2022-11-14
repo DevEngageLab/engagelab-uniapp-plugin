@@ -5,6 +5,8 @@ import static android.content.ContentValues.TAG;
 import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,6 +16,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.engagelab.privates.core.api.MTCorePrivatesApi;
 import com.engagelab.privates.push.api.MTPushPrivatesApi;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.taobao.weex.bridge.JSCallback;
 
 
@@ -28,6 +32,7 @@ import io.dcloud.feature.uniapp.annotation.UniJSMethod;
 import io.dcloud.feature.uniapp.bridge.UniJSCallback;
 import io.dcloud.feature.uniapp.common.UniDestroyableModule;
 import io.dcloud.feature.uniapp.common.UniModule;
+
 
 public class MTPushModule extends UniDestroyableModule {
 
@@ -66,6 +71,32 @@ public class MTPushModule extends UniDestroyableModule {
         MTPushPrivatesApi.init(mWXSDKInstance.getContext());
 
         // broadcast
+
+        // init fcm
+        initFcm();
+    }
+
+    void initFcm() {
+        try {
+            Context context = mWXSDKInstance.getContext();
+            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            String google_api_key = appInfo.metaData.getString("google_api_key").substring(2);
+            String google_app_id = appInfo.metaData.getString("google_app_id").substring(2);
+            String gcm_defaultSenderId = appInfo.metaData.getString("gcm_defaultSenderId").substring(2);
+            String project_id = appInfo.metaData.getString("project_id").substring(2);
+            String google_storage_bucket = appInfo.metaData.getString("google_storage_bucket").substring(2);
+
+            FirebaseOptions fireBaseOptions = new FirebaseOptions.Builder()
+                    .setApiKey(google_api_key)
+                    .setApplicationId(google_app_id)
+                    .setGcmSenderId(gcm_defaultSenderId)
+                    .setProjectId(project_id)
+                    .setStorageBucket(google_storage_bucket)
+                    .build();
+            FirebaseApp.initializeApp(context, fireBaseOptions);
+        }catch (Throwable e) {
+
+        }
     }
 
     @UniJSMethod(uiThread = true)

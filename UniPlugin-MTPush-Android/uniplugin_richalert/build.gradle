@@ -37,5 +37,4 @@ dependencies {
 
     compileOnly fileTree(dir: '../app/libs', include: ['uniapp-v8-release.aar'])
 
-    compileOnly 'com.alibaba:fastjson:1.1.46.android'
 }
