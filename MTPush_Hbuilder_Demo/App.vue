@@ -18,8 +18,9 @@
 				})
 			}
 			
-			mtpushModule.initPushService();
+			// mtpushModule.setCountryCode("US");
 			mtpushModule.setLoggerEnable(true);
+			mtpushModule.initPushService();
 			mtpushModule.addConnectEventListener(result=>{
 				let connectEnable = result.connectEnable
 				uni.$emit('connectStatusChange',connectEnable)

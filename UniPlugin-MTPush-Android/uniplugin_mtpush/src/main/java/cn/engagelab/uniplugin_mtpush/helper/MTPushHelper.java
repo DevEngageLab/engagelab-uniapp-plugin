@@ -7,12 +7,12 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.engagelab.privates.push.api.CustomMessage;
 import com.taobao.weex.bridge.JSCallback;
 
 import java.util.HashMap;
 import java.util.Set;
 
+import com.engagelab.privates.push.api.CustomMessage;
 import cn.engagelab.uniplugin_mtpush.common.MTConstants;
 import cn.engagelab.uniplugin_mtpush.common.MTLogger;
 

@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.engagelab.privates.core.api.MTCorePrivatesApi;
 import com.engagelab.privates.push.api.MTPushPrivatesApi;
+import com.engagelab.privates.common.global.MTGlobal;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.taobao.weex.bridge.JSCallback;
@@ -42,6 +43,25 @@ public class MTPushModule extends UniDestroyableModule {
     public void updatePluginStatu() {
         uniContext = mWXSDKInstance.getContext();
         MTPushHelper.IS_DESTROY = false;
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void setCountryCode(String countryCode) {
+        updatePluginStatu();
+        Context context = uniContext;
+        if (context == null) {
+            MTLogger.e("configGoogle context can't be null, please check it");
+            return;
+        }
+        if (!MTGlobal.isMainProcess(context.getApplicationContext()) && !MTGlobal.isRemoteProcess(context.getApplicationContext())) {
+            return;
+        }
+        MTGlobal.setCountryCode(countryCode);
+//        if (!enable) {
+//            MTGlobal.setCountryCode("CN");
+//        } else {
+//            MTGlobal.setCountryCode("US");
+//        }
     }
 
     @UniJSMethod(uiThread = true)
@@ -85,6 +105,13 @@ public class MTPushModule extends UniDestroyableModule {
             String gcm_defaultSenderId = appInfo.metaData.getString("gcm_defaultSenderId").substring(2);
             String project_id = appInfo.metaData.getString("project_id").substring(2);
             String google_storage_bucket = appInfo.metaData.getString("google_storage_bucket").substring(2);
+
+//            MTLogger.d("initFcm");
+//            MTLogger.d("google_api_key:" + google_api_key);
+//            MTLogger.d("google_app_id:" + google_app_id);
+//            MTLogger.d("gcm_defaultSenderId:" + gcm_defaultSenderId);
+//            MTLogger.d("project_id:" + project_id);
+//            MTLogger.d("google_storage_bucket:" + google_storage_bucket);
 
             FirebaseOptions fireBaseOptions = new FirebaseOptions.Builder()
                     .setApiKey(google_api_key)

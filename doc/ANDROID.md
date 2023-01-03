@@ -104,3 +104,14 @@ mtpushModule.clearAllNotifications();
 ```
 
 
+## 设置国家码
+
+### API - setCountryCode()
+该接口用来调试fcm通道。在国内如果需要调试fcm通道，需要设置setCountryCode,参数为"US"。
+该接口只用来在debug模式调试使用，在正式环境请不要使用。
+
+#### 示例
+```javascript
+mtpushModule.setCountryCode("US");
+```
+
