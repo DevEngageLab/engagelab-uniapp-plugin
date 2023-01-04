@@ -5,7 +5,7 @@
 支持 iOS 和 Android 推送，同时适配各大厂商推送。
 
 ## uniapp插件市场地址
-[EngageLab推送官方SDK](https://ext.dcloud.net.cn/plugin?id=)
+[EngageLab推送官方SDK](https://ext.dcloud.net.cn/plugin?id=10093)
 
 ## 接入
 - 1.将 nativeplugins/EL-MTPush 导入项目对应位置。
@@ -38,16 +38,21 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 | MTPUSH_APPKEY_ANDROID | engagelab appkey (必填) | EngageLab portal配置应用信息时分配的AppKey  |
 | MTPUSH_CHANNEL_ANDROID | engagelab channel (选填) | 用于统计分发渠道，不需要可填默认值developer-default |
 | MTPUSH_PROCESS_ANDROID | Engagelabsdk work thread (必填) | Engagelab process，Engagelabsdk工作所在的进程，请填写 :remote  |
-| MTPUSH_OPPO_APPKEY   | android oppo appkey（选填）                                | OP-12345678 |
-| MTPUSH_OPPO_APPID   | android oppo appid（选填）                                | OP-12345678 |
-| MTPUSH_OPPO_APPSECRET   | android oppo appSecret（选填）                                | OP-12345678 |
-| MTPUSH_VIVO_APPKEY   | android vivo appkey（选填）                                | 12345678 |
-| MTPUSH_VIVO_APPID   | android vivo appId（选填）                                | 12345678 |
+| MTPUSH_OPPO_APPKEY   | android oppo appkey（选填）                                  | OP-12345678 |
+| MTPUSH_OPPO_APPID   | android oppo appid（选填）                                    | OP-12345678 |
+| MTPUSH_OPPO_APPSECRET   | android oppo appSecret（选填）                            | OP-12345678 |
+| MTPUSH_VIVO_APPKEY   | android vivo appkey（选填）                                  | 12345678 |
+| MTPUSH_VIVO_APPID   | android vivo appId（选填）                                    | 12345678 |
 | MTPUSH_MEIZU_APPKEY   | android meizu appkey（选填）                                | MZ-12345678 |
-| MTPUSH_MEIZU_APPID   | android meizu appId（选填）                                | MZ-12345678 |
-| MTPUSH_XIAOMI_GLOBAL_APPKEY   | android xiaomi global appKey（选填）                                | MI-12345678 |
-| MTPUSH_XIAOMI_GLOBAL_APPID   | android xiaomi global appId（选填）                                | MI-12345678 |
+| MTPUSH_MEIZU_APPID   | android meizu appId（选填）                                  | MZ-12345678 |
+| MTPUSH_XIAOMI_GLOBAL_APPKEY   | android xiaomi global appKey（选填）                | MI-12345678 |
+| MTPUSH_XIAOMI_GLOBAL_APPID   | android xiaomi global appId（选填）                  | MI-12345678 |
 | MTPUSH_HUAWEI_APPID   | android huawei appId（选填）                                | appid=12345678 |
+| MTPUSH_GOOGLE_API_KEY  | G-拼接google-services.json下的current_key（选填）          | G-12345678 |
+| MTPUSH_GOOGLE_APP_ID  | G-拼接google-services.json下的mobilesdk_app_id（选填）      | G-12345678 |
+| MTPUSH_GOOGLE_PROJECT_ID  | G-拼接google-services.json下的project_id（选填）        | G-12345678 |
+| MTPUSH_GOOGLE_PROJECT_NUMBER  | G-拼接google-services.json下的project_number（选填）| G-12345678 |
+| MTPUSH_GOOGLE_STORAGE_BUCKET  | G-拼接google-services.json下的storage_bucket（选填）| G-12345678 |
 |MTPUSH_APPKEY_IOS| engagelab appkey (必填)| EngageLab portal配置应用信息时分配的AppKey |
 |MTPUSH_CHANNEL_IOS| engagelab channel (选填) |用于统计分发渠道，不需要可填默认值developer-default|
 |MTPush_ISPRODUCTION_IOS|iOS 是否是生产环境（选填）|是填true,不是填false或者不填|
@@ -58,7 +63,7 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 #### Android 厂商配置说明
 插件支持 OPPO VIVO 魅族 小米 华为 FCM六大厂商推送接入，如需接入请对应配置上述厂商信息。
 
-- [fcm厂商接入](https://docs.engagelab.cn/mtpush/client/Android/fcm-Push-guide/)
+- [厂商通道参数申请指南](https://jiguang-docs.yuque.com/staff-mg3p4r/vc4ysl/ca9ssa1c4izt4b5u?singleDoc#)
 
 ## API
 - [公用 API](https://github.com/DevEngageLab/engagelab-uniapp-plugin/blob/main/doc/API.md)
@@ -76,4 +81,3 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 ## Licensemtpush
 
 MIT © [EngageLab](/license)
-
