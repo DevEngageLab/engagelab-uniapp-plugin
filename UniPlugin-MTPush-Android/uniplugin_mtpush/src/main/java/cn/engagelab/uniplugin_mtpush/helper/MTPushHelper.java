@@ -5,18 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.taobao.weex.bridge.JSCallback;
 
 import java.util.HashMap;
-import java.util.Set;
 
 import com.engagelab.privates.push.api.CustomMessage;
 import cn.engagelab.uniplugin_mtpush.common.MTConstants;
 import cn.engagelab.uniplugin_mtpush.common.MTLogger;
 
 import com.engagelab.privates.push.api.NotificationMessage;
+
 
 public class MTPushHelper {
 
@@ -55,28 +54,8 @@ public class MTPushHelper {
         jsonObject.put(MTConstants.TITLE, message.getTitle());
         jsonObject.put(MTConstants.CONTENT, message.getContent());
         jsonObject.put(MTConstants.ANDROID, JSONObject.parseObject(JSONObject.toJSONString(message)));
-        convertExtras(message.getExtras().toString(), jsonObject);
-        return jsonObject;
-    }
-
-    public static JSONObject convertThirdOpenNotificationToMap(String msgId, String title, String content, String extra, String android) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put(MTConstants.NOTIFICATION_EVENT_TYPE, MTConstants.NOTIFICATION_OPENED);
-        jsonObject.put(MTConstants.MESSAGE_ID, msgId);
-        jsonObject.put(MTConstants.TITLE, title);
-        jsonObject.put(MTConstants.CONTENT, content);
-        jsonObject.put(MTConstants.ANDROID, JSONObject.parseObject(android));
-        convertExtras(extra, jsonObject);
-        return jsonObject;
-    }
-
-    public static JSONObject convertNotificationBundleToMap(String eventType, Bundle bundle) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put(MTConstants.NOTIFICATION_EVENT_TYPE, eventType);
-        jsonObject.put(MTConstants.MESSAGE_ID, bundle.getString("cn.jpush.android.MSG_ID", ""));
-        jsonObject.put(MTConstants.TITLE, bundle.getString("cn.jpush.android.NOTIFICATION_CONTENT_TITLE", ""));
-        jsonObject.put(MTConstants.CONTENT, bundle.getString("cn.jpush.android.ALERT", ""));
-        convertExtras(bundle.getString("cn.jpush.android.EXTRA", ""), jsonObject);
+        String extras = getJson(message.getExtras());
+        convertExtras(extras, jsonObject);
         return jsonObject;
     }
 
@@ -85,7 +64,8 @@ public class MTPushHelper {
         jsonObject.put(MTConstants.MESSAGE_ID, customMessage.getMessageId());
         jsonObject.put(MTConstants.TITLE, customMessage.getTitle());
         jsonObject.put(MTConstants.CONTENT, customMessage.getContent());
-        convertExtras(customMessage.getExtras().toString(), jsonObject);
+        String extras = getJson(customMessage.getExtras());
+        convertExtras(extras, jsonObject);
         jsonObject.put(MTConstants.ANDROID, JSONObject.parseObject(JSONObject.toJSONString(customMessage)));
         return jsonObject;
     }
@@ -143,6 +123,21 @@ public class MTPushHelper {
             sendNotifactionEvent(OPEN_NOTIFICATION_DATA, OPEN_NOTIFICATION_TYPE);
             OPEN_NOTIFICATION_DATA = null;
         }
+    }
+
+    public static String getJson(final Bundle bundle) {
+        if (bundle == null) return null;
+        JSONObject jsonObject = new JSONObject();
+
+        for (String key : bundle.keySet()) {
+            Object obj = bundle.get(key);
+            try {
+                jsonObject.put(key, bundle.get(key));
+            } catch (Throwable throwable) {
+                MTLogger.e("getJson error:" + throwable.getMessage());
+            }
+        }
+        return jsonObject.toString();
     }
 
 }
