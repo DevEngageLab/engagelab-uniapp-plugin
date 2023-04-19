@@ -80,11 +80,10 @@
 		2A21734025ADE4C30084EBAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A21733F25ADE4C30084EBAE /* UserNotifications.framework */; };
 		2A21734125ADE4CF0084EBAE /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6731F3A3232F5B7A007838BC /* libresolv.tbd */; };
 		2A21734225ADE4E10084EBAE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447371A1D0830BB00D0F08F /* WebKit.framework */; };
-		2A21734425ADE4ED0084EBAE /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A21734325ADE4ED0084EBAE /* AppTrackingTransparency.framework */; };
 		2A21734625ADE4F70084EBAE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A21734525ADE4F70084EBAE /* StoreKit.framework */; };
-		2A3A04F4291944FA00A2DBE1 /* mtpush-ios-3.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A3A04F3291944FA00A2DBE1 /* mtpush-ios-3.0.0.a */; };
 		2AC5D66525B822E800EA873C /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC5D66425B822E800EA873C /* PushKit.framework */; };
 		2ADCEE2A29124CB300471D3D /* UniPluginMTPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADCEE2729124C6600471D3D /* UniPluginMTPush.framework */; };
+		2AFB6BC829ED2D8500B80E6A /* mtpush-ios-3.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFB6BC729ED2D8500B80E6A /* mtpush-ios-3.3.0.a */; };
 		2F0BA3F9215B48A700F67004 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BA3F8215B48A700F67004 /* Images.xcassets */; };
 		2F0BA410215B784100F67004 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0BA40F215B784000F67004 /* Contacts.framework */; };
 		2F0BA412215B814100F67004 /* liblibVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0BA411215B814000F67004 /* liblibVideo.a */; };
@@ -310,10 +309,10 @@
 		2A21733F25ADE4C30084EBAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		2A21734325ADE4ED0084EBAE /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		2A21734525ADE4F70084EBAE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		2A3A04F3291944FA00A2DBE1 /* mtpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "mtpush-ios-3.0.0.a"; path = "../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/mtpush-ios-3.0.0.a"; sourceTree = "<group>"; };
 		2AC5D66225B6807700EA873C /* UniPluginDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UniPluginDemo.entitlements; sourceTree = "<group>"; };
 		2AC5D66425B822E800EA873C /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		2ADCEE2229124C6600471D3D /* UniPluginMTPush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UniPluginMTPush.xcodeproj; path = UniPluginMTPush/UniPluginMTPush.xcodeproj; sourceTree = "<group>"; };
+		2AFB6BC729ED2D8500B80E6A /* mtpush-ios-3.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "mtpush-ios-3.3.0.a"; path = "../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/mtpush-ios-3.3.0.a"; sourceTree = "<group>"; };
 		2F0BA3F8215B48A700F67004 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../HBuilder/Images.xcassets; sourceTree = "<group>"; };
 		2F0BA3FB215B4A4100F67004 /* DCADManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCADManager.h; sourceTree = "<group>"; };
 		2F0BA3FD215B4A4100F67004 /* PDRCommonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDRCommonString.h; sourceTree = "<group>"; };
@@ -680,7 +679,6 @@
 				2A21734225ADE4E10084EBAE /* WebKit.framework in Frameworks */,
 				67229AD2230171AE0093F29A /* libDCUniVideo.a in Frameworks */,
 				67229AD3230171AE0093F29A /* libDCUniBarcode.a in Frameworks */,
-				2A21734425ADE4ED0084EBAE /* AppTrackingTransparency.framework in Frameworks */,
 				67229AD4230171AE0093F29A /* IJKMediaFramework.framework in Frameworks */,
 				2A21734625ADE4F70084EBAE /* StoreKit.framework in Frameworks */,
 				67229AD6230171AE0093F29A /* libDCUniGPUImage.a in Frameworks */,
@@ -743,6 +741,7 @@
 				24AFD8581CB50C4000C0F062 /* liblibNativeUI.a in Frameworks */,
 				24AFD8591CB50C4000C0F062 /* liblibNavigator.a in Frameworks */,
 				24AFD85A1CB50C4000C0F062 /* liblibOauth.a in Frameworks */,
+				2AFB6BC829ED2D8500B80E6A /* mtpush-ios-3.3.0.a in Frameworks */,
 				2430A7011E11603E00D3D42D /* libcrypto.a in Frameworks */,
 				24AFD85B1CB50C4000C0F062 /* liblibOrientation.a in Frameworks */,
 				7A1967C721253B5F00B330A9 /* libWeChatSDK_pay.a in Frameworks */,
@@ -775,7 +774,6 @@
 				2A21734025ADE4C30084EBAE /* UserNotifications.framework in Frameworks */,
 				2A21733E25ADE4B70084EBAE /* AdSupport.framework in Frameworks */,
 				24AFD8731CB50C4000C0F062 /* libSinaWBOauth.a in Frameworks */,
-				2A3A04F4291944FA00A2DBE1 /* mtpush-ios-3.0.0.a in Frameworks */,
 				24AFD8761CB50C4000C0F062 /* libTouchJSON.a in Frameworks */,
 				2A21733725ADE4890084EBAE /* CoreGraphics.framework in Frameworks */,
 				24AFD8791CB50C4000C0F062 /* libWeiboSDK.a in Frameworks */,
@@ -1128,7 +1126,7 @@
 		8EED629A198A1D13000A4449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A3A04F3291944FA00A2DBE1 /* mtpush-ios-3.0.0.a */,
+				2AFB6BC729ED2D8500B80E6A /* mtpush-ios-3.3.0.a */,
 				2AC5D66425B822E800EA873C /* PushKit.framework */,
 				2A21734525ADE4F70084EBAE /* StoreKit.framework */,
 				2A21734325ADE4ED0084EBAE /* AppTrackingTransparency.framework */,

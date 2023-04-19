@@ -59,6 +59,7 @@
 			
 			
 			initPush() {
+				// mtpushModule.setTcpSSL(true)
 				mtpushModule.initPushService()
 			},
 			

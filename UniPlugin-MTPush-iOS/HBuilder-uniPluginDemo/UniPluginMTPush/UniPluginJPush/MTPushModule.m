@@ -40,6 +40,7 @@ UNI_EXPORT_METHOD(@selector(addMobileNumberListener:))
 UNI_EXPORT_METHOD(@selector(setMobileNumber:))
 UNI_EXPORT_METHOD(@selector(setLoggerEnable:))
 UNI_EXPORT_METHOD(@selector(getRegistrationID:))
+UNI_EXPORT_METHOD(@selector(setTcpSSL:))
 
 #pragma -
 
@@ -92,6 +93,11 @@ UNI_EXPORT_METHOD(@selector(getRegistrationID:))
     }];
 }
 
+// 设置是否tcp加密
+- (void)setTcpSSL:(BOOL)isSSL {
+    [self logger:@"setTcpSSL" log:(isSSL?@"true":@"false")];
+    [MTPushService setTcpSSL:isSSL];
+}
 
 
 UNI_EXPORT_METHOD(@selector(requestNotificationAuthorization:))
