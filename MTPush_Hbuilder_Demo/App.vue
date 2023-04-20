@@ -19,6 +19,7 @@
 			}
 			
 			// mtpushModule.setCountryCode("US");
+			// mtpushModule.setTcpSSL(true)
 			mtpushModule.setLoggerEnable(true);
 			mtpushModule.initPushService();
 			mtpushModule.addConnectEventListener(result=>{

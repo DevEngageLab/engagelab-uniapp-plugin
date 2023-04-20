@@ -71,6 +71,15 @@ public class MTPushModule extends UniDestroyableModule {
         MTLogger.setLoggerEnable(enable);
     }
 
+
+    @UniJSMethod(uiThread = true)
+    public void setTcpSSl(boolean enable) {
+        MTLogger.w("setTcpSSl-----");
+        updatePluginStatu();
+        MTCorePrivatesApi.setTcpSSl(enable);
+    }
+
+
     @UniJSMethod(uiThread = true)
     public void openSettingsForNotification(JSCallback callback) {
         updatePluginStatu();
