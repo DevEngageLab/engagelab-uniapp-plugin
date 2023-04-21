@@ -59,6 +59,7 @@
 			
 			
 			initPush() {
+				// mtpushModule.setTcpSSl(true)
 				mtpushModule.initPushService()
 			},
 			
