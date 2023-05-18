@@ -19,6 +19,11 @@
 #define LATITUDE          @"latitude"
 #define LONGITUDE         @"longitude"
 
+#define TAGS             @"tags"
+#define TAG              @"tag"
+#define SEQUENCE         @"sequence"
+#define ALIAS            @"alias"
+#define TAG_ENABLE       @"tagEnable"
 #define CODE             @"code"
 #define MESSAGE_ID       @"messageID"
 #define TITLE            @"title"
@@ -175,6 +180,201 @@ UNI_EXPORT_METHOD(@selector(addCustomMessageListener:))
     [self logger:@"addCustomNotificationReceiveListener" log:nil];
     [MTPushStore shared].receiveCustomNotiCallback = callback;
 }
+
+
+UNI_EXPORT_METHOD(@selector(addTagAliasListener:))
+UNI_EXPORT_METHOD(@selector(addTags:))
+UNI_EXPORT_METHOD(@selector(updateTags:))
+UNI_EXPORT_METHOD(@selector(deleteTags:))
+UNI_EXPORT_METHOD(@selector(cleanTags:))
+UNI_EXPORT_METHOD(@selector(queryTag:))
+UNI_EXPORT_METHOD(@selector(getAllTags:))
+UNI_EXPORT_METHOD(@selector(setAlias:))
+UNI_EXPORT_METHOD(@selector(deleteAlias:))
+UNI_EXPORT_METHOD(@selector(queryAlias:))
+UNI_EXPORT_METHOD(@selector(filterValidTags:))
+
+
+#pragma mark - tags/alias
+
+- (void)addTagAliasListener:(UniModuleKeepAliveCallback)callback {
+    [self logger:@"addTagAliasListener" log:nil];
+    [MTPushStore shared].tagAliasCallBack = callback;
+}
+
+
+// 新增tags
+- (void)addTags:(NSDictionary *)params {
+    [self logger:@"addTags with params:" log:params];
+    NSSet *tags = [NSSet setWithArray:params[TAGS]];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService addTags:tags completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+        NSArray *tempTags = (iTags.allObjects.count > 0 ? iTags.allObjects : @[]);
+        NSDictionary *content = @{
+            TAGS:tempTags,
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 更新tags
+- (void)updateTags:(NSDictionary *)params {
+    [self logger:@"updateTags with params:" log:params];
+    NSSet *tags = [NSSet setWithArray:params[TAGS]];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService setTags:tags completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+        NSArray *tempTags = (iTags.allObjects.count > 0 ? iTags.allObjects : @[]);
+        NSDictionary *content = @{
+            TAGS:tempTags,
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 删除所有tags
+- (void)cleanTags:(NSDictionary *)params {
+    [self logger:@"deleteTags with params:" log:params];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService cleanTags:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+        NSArray *tempTags = (iTags.allObjects.count > 0 ? iTags.allObjects : @[]);
+        NSDictionary *content = @{
+            TAGS:tempTags,
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 删除指定的tags
+- (void)deleteTags:(NSDictionary *)params {
+    [self logger:@"deleteTag with params:" log:params];
+    NSSet *tags = [NSSet setWithArray:params[TAGS]];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService deleteTags:tags completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+        NSArray *tempTags = (iTags.allObjects.count > 0 ? iTags.allObjects : @[]);
+        NSDictionary *content = @{
+            TAGS:tempTags,
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 查询tags
+- (void)getAllTags:(NSDictionary *)params {
+    [self logger:@"queryTags with params:" log:params];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService getAllTags:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+        NSArray *tempTags = (iTags.allObjects.count > 0 ? iTags.allObjects : @[]);
+        NSDictionary *content = @{
+            TAGS:tempTags,
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 查询某一个tag
+- (void)queryTag:(NSDictionary *)params {
+    [self logger:@"queryTag with params:" log:params];
+    NSString *tag = params[TAG];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService validTag:tag completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq, BOOL isBind) {
+        NSArray *tempTags = (iTags.allObjects.count > 0 ? iTags.allObjects : @[]);
+        NSDictionary *content = @{
+            TAGS:tempTags,
+            SEQUENCE:@(seq),
+            TAG_ENABLE:@(isBind),
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 设置别名
+- (void)setAlias:(NSDictionary *)params {
+    [self logger:@"setAlias with params:" log:params];
+    NSString *alias = params[ALIAS];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService setAlias:alias completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        NSDictionary *content = @{
+            ALIAS:iAlias? iAlias : @"",
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 删除别名
+- (void)deleteAlias:(NSDictionary *)params {
+    [self logger:@"deleteAlias with params:" log:params];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        NSDictionary *content = @{
+            ALIAS:iAlias? iAlias : @"",
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 查询别名
+- (void)queryAlias:(NSDictionary *)params {
+    [self logger:@"queryAlias with params:" log:params];
+    NSInteger seq = params[SEQUENCE]?[params[SEQUENCE] integerValue]:-1;
+    weakObj(self)
+    [MTPushService getAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        NSDictionary *content = @{
+            ALIAS:iAlias? iAlias : @"",
+            SEQUENCE:@(seq)
+        };
+        NSDictionary *result = [weakself convertResultWithCode:iResCode content:content];
+        if ([MTPushStore shared].tagAliasCallBack) {
+            [MTPushStore shared].tagAliasCallBack(result, YES);
+        }
+    } seq:seq];
+}
+
+// 过滤掉无效的 tags
+- (void)filterValidTags:(NSDictionary *)params {
+    [self logger:@"filterValidTags with params:" log:params];
+    NSSet *tags = [NSSet setWithArray:params[TAGS]];
+    [MTPushService filterValidTags:tags];
+}
+
 
 UNI_EXPORT_METHOD(@selector(addLocalNotificationListener:))
 UNI_EXPORT_METHOD(@selector(addLocalNotification:))

@@ -63,7 +63,6 @@
 		24BD5AF61C994BB200B05AA2 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BD5AF51C994BB200B05AA2 /* libc++.tbd */; };
 		24F990131DFBDA3300848C2B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F990121DFBDA3300848C2B /* CoreData.framework */; };
 		2A49E1CA29F1479600DE8E79 /* UniPluginMTPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A49E1C629F1421700DE8E79 /* UniPluginMTPush.framework */; };
-		2A49E1CC29F147D000DE8E79 /* mtpush-ios-3.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A49E1CB29F147D000DE8E79 /* mtpush-ios-3.3.0.a */; };
 		2F0BA3F9215B48A700F67004 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0BA3F8215B48A700F67004 /* Images.xcassets */; };
 		2F0BA410215B784100F67004 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0BA40F215B784000F67004 /* Contacts.framework */; };
 		2F0BA412215B814100F67004 /* liblibVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0BA411215B814000F67004 /* liblibVideo.a */; };
@@ -86,6 +85,7 @@
 		2FDE6A56297147F2004C7701 /* DCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE6A55297147F2004C7701 /* DCloud.swift */; };
 		4FA53F7C26E5D14400BAD6A0 /* uni-jsframework-vue3.js in Resources */ = {isa = PBXBuildFile; fileRef = 4FA53F7B26E5D14400BAD6A0 /* uni-jsframework-vue3.js */; };
 		4FE3666A254FE5FC00DCD173 /* libuchardet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE36669254FE5FB00DCD173 /* libuchardet.a */; };
+		62195C5F2A160791002BEDF2 /* mtpush-ios-3.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62195C5E2A160791002BEDF2 /* mtpush-ios-3.5.0.a */; };
 		67065F3A2243868400DC71CA /* Default-896h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67065F1E2243868300DC71CA /* Default-896h@2x.png */; };
 		67065F3B2243868400DC71CA /* Default-Landscape-812h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67065F1F2243868300DC71CA /* Default-Landscape-812h@3x.png */; };
 		67065F3C2243868400DC71CA /* Default-Landscape-896h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67065F202243868300DC71CA /* Default-Landscape-896h@3x.png */; };
@@ -280,7 +280,6 @@
 		24BD5AF51C994BB200B05AA2 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		24F990121DFBDA3300848C2B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A49E1C129F1421700DE8E79 /* UniPluginMTPush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UniPluginMTPush.xcodeproj; path = UniPluginMTPush/UniPluginMTPush.xcodeproj; sourceTree = "<group>"; };
-		2A49E1CB29F147D000DE8E79 /* mtpush-ios-3.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "mtpush-ios-3.3.0.a"; path = "../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/mtpush-ios-3.3.0.a"; sourceTree = "<group>"; };
 		2A7C531B29D17F7000FD4B89 /* HBuilder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = HBuilder.entitlements; path = HBuilder/HBuilder.entitlements; sourceTree = "<group>"; };
 		2F0BA3F8215B48A700F67004 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../HBuilder/Images.xcassets; sourceTree = "<group>"; };
 		2F0BA3FD215B4A4100F67004 /* PDRCommonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDRCommonString.h; sourceTree = "<group>"; };
@@ -444,6 +443,7 @@
 		4FF0ABC6259062C700A54D59 /* SDImageCachesManagerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCachesManagerOperation.h; sourceTree = "<group>"; };
 		4FF0ABC7259062C700A54D59 /* UIColor+SDHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SDHexString.h"; sourceTree = "<group>"; };
 		4FF0ABC8259062C700A54D59 /* SDImageAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageAssetManager.h; sourceTree = "<group>"; };
+		62195C5E2A160791002BEDF2 /* mtpush-ios-3.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "mtpush-ios-3.5.0.a"; path = "../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/mtpush-ios-3.5.0.a"; sourceTree = "<group>"; };
 		67065F1E2243868300DC71CA /* Default-896h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-896h@2x.png"; sourceTree = "<group>"; };
 		67065F1F2243868300DC71CA /* Default-Landscape-812h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-812h@3x.png"; sourceTree = "<group>"; };
 		67065F202243868300DC71CA /* Default-Landscape-896h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-896h@3x.png"; sourceTree = "<group>"; };
@@ -735,6 +735,7 @@
 				24AFD7FF1CB50C3200C0F062 /* AlipaySDK.framework in Frameworks */,
 				24AFD8021CB50C3200C0F062 /* TencentOpenAPI.framework in Frameworks */,
 				24BD5AF21C994A1700B05AA2 /* libicucore.tbd in Frameworks */,
+				62195C5F2A160791002BEDF2 /* mtpush-ios-3.5.0.a in Frameworks */,
 				24BD5AF01C99494A00B05AA2 /* libz.tbd in Frameworks */,
 				24BD5AEE1C99494200B05AA2 /* libxml2.tbd in Frameworks */,
 				67D6390A21C12945005D1E8F /* libbaiduSpeech.a in Frameworks */,
@@ -755,7 +756,6 @@
 				8EED659C198A5773000A4449 /* AddressBookUI.framework in Frameworks */,
 				8EED6598198A5754000A4449 /* MessageUI.framework in Frameworks */,
 				2F5FAE6E2865DB9800430AFA /* BMKLocationKit.framework in Frameworks */,
-				2A49E1CC29F147D000DE8E79 /* mtpush-ios-3.3.0.a in Frameworks */,
 				67AB0B3D21EEEA6B0029B229 /* libAMapImp.a in Frameworks */,
 				8EED6592198A5737000A4449 /* AddressBook.framework in Frameworks */,
 				8EED6422198A2678000A4449 /* AudioToolbox.framework in Frameworks */,
@@ -1079,7 +1079,7 @@
 		8EED629A198A1D13000A4449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A49E1CB29F147D000DE8E79 /* mtpush-ios-3.3.0.a */,
+				62195C5E2A160791002BEDF2 /* mtpush-ios-3.5.0.a */,
 				2FDE6A52297147E1004C7701 /* GTSDK.xcframework */,
 				2F4864C6293E121C00142360 /* DCUniRecord.framework */,
 				2F5FAE6C2865DB9800430AFA /* BMKLocationKit.framework */,
@@ -1656,7 +1656,7 @@
 				);
 				INFOPLIST_FILE = "HBuilder-Hello/HBuilder-uniPlugin-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JPush_Hbuilder_Demo;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1716,7 +1716,7 @@
 				);
 				INFOPLIST_FILE = "HBuilder-Hello/HBuilder-uniPlugin-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JPush_Hbuilder_Demo;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) UniModuleKeepAliveCallback locationAuthorizationCallBack;
 
+@property (nonatomic, copy) UniModuleKeepAliveCallback tagAliasCallBack; // 标签别名回调
+
 @property (nonatomic, copy) UniModuleKeepAliveCallback addMobileNumberCallBack;
 
 @property (nonatomic, strong) NSDictionary *launchOptions;

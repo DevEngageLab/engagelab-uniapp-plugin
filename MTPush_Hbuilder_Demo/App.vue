@@ -50,7 +50,15 @@
 					title: JSON.stringify(result),
 					duration: 3000
 				})
-			})
+			});
+			
+			mtpushModule.addTagAliasListener(result=>{
+				uni.showToast({
+					icon: 'none',
+					title: JSON.stringify(result),
+					duration: 3000
+				})
+			});
 			
 			if(uni.getSystemInfoSync().platform == "ios"){
 				mtpushModule.addLocalNotificationListener(result=>{

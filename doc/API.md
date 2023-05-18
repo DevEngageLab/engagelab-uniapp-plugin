@@ -154,6 +154,228 @@ mtpushModule.addCustomMessageListener(result=>{
 			})
 ```
 
+## 标签别名事件回调
+
+### API - addTagAliasListener(CALLBACK)
+
+#### 参数说明
+
+- CALLBACK
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|code|number|请求状态码 0 - 成功|
+|sequence|number|请求时传入的序列号,会在回调时原样返回|
+|tags|StringArray|执行tag数组操作时返回|
+|tag|string|执行查询指定tag(queryTag)操作时会返回|
+|tagEnable|boolean|执行查询指定tag(queryTag)操作时会返回是否可用|
+|alias|string|对alias进行操作时返回|
+
+#### 示例
+
+```javascript
+mtpushModule.addTagAliasListener(result=>{
+					let code = result.code
+					let sequence = result.sequence
+					let tags = result.tags
+					let tag = result.tag
+					let tagEnable = result.tagEnable
+					let alias = result.alias
+				})
+```
+
+
+## 新增标签
+
+### API - addTags(Object)
+这个接口是增加逻辑，而不是覆盖逻辑
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|tags|StringArray|string类型的数组|
+
+#### 示例
+```javascript
+mtpushModule.addTags({
+					'tags':['beauty','rich'],
+					'sequence': 1
+				})
+```
+
+## 覆盖标签
+
+### API - updateTags(Object)
+需要理解的是，这个接口是覆盖逻辑，而不是增量逻辑。即新的调用会覆盖之前的设置
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|tags|StringArray|string类型的数组|
+
+#### 示例
+```javascript
+mtpushModule.updateTags({
+					'tags':['beauty','rich'],
+					'sequence': 1
+				})
+```
+
+
+## 删除指定标签
+
+### API - deleteTags(Object)
+删除指定标签
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|tags|StringArray|string类型的数组|
+
+#### 示例
+```javascript
+mtpushModule.deleteTags({
+					'tags':['beauty','rich'],
+					'sequence': 1
+				})
+```
+
+
+## 清除所有标签
+
+### API - cleanTags(Object)
+清除所有标签
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+
+#### 示例
+```javascript
+mtpushModule.cleanTags({
+					'sequence': 1
+				})
+```
+
+
+## 查询指定 tag 与当前用户绑定的状态
+
+### API - queryTag(Object)
+查询指定 tag 与当前用户绑定的状态
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|tag|string|需要查询的标签|
+
+
+#### 示例
+```javascript
+mtpushModule.queryTag({
+					'tag':'beauty',
+					'sequence': 1
+				})
+```
+
+
+## 查询所有标签
+
+### API - getAllTags(Object)
+查询所有标签
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+
+
+#### 示例
+```javascript
+mtpushModule.getAllTags({
+					'sequence': 1
+				})
+```
+
+
+## 设置别名
+
+### API - setAlias(Object)
+每次调用设置有效的别名，覆盖之前的设置
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|alias|string|有效的别名组成：字母（区分大小写）、数字、下划线、汉字、特殊字符@!#$&\*+=.\||
+
+#### 示例
+```javascript
+mtpushModule.setAlias({
+                'alias' : 'coder',
+					'sequence': 1
+				})
+```
+
+## 删除别名
+
+### API - deleteAlias(Object)
+删除别名
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+
+
+#### 示例
+```javascript
+mtpushModule.deleteAlias({
+					'sequence': 1
+				})
+```
+
+
+## 查询别名
+
+### API - queryAlias(Object)
+删除别名
+
+#### 参数说明
+- Object
+
+|参数名称|参数类型|参数说明|
+|:-----:|:----:|:-----:|
+|sequence|number|请求时传入的序列号，会在回调时原样返回|
+
+
+#### 示例
+```javascript
+mtpushModule.queryAlias({
+					'sequence': 1
+				})
+```
+
 
 ## 设置 Badge
 
