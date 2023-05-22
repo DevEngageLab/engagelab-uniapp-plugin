@@ -289,6 +289,153 @@ public class MTPushModule extends UniDestroyableModule {
         MTPushPrivatesApi.uploadMobileNumber(mWXSDKInstance.getContext(), sequence, mobileNumber);
     }
 
+    @UniJSMethod(uiThread = true)
+    public void addTagAliasListener(JSCallback callback) {
+        updatePluginStatu();
+        if (callback != null) {
+            MTLogger.w("addTagAliasListener");
+            MTPushHelper.eventCallback.put(MTConstants.TAG_ALIAS_EVENT, callback);
+        }
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void addTags(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        if (readableMap.containsKey(MTConstants.TAGS)) {
+            JSONArray tags = readableMap.getJSONArray(MTConstants.TAGS);
+            int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+            Set<String> tagSet = new HashSet<>();
+            for (int i = 0; i < tags.size(); i++) {
+                String tag = tags.getString(i);
+                tagSet.add(tag);
+            }
+            String[] arr = tagSet.toArray(new String[0]);
+            MTPushPrivatesApi.addTag(mWXSDKInstance.getContext(), sequence, arr);
+        } else {
+            MTLogger.w("there are no " + MTConstants.TAGS);
+        }
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void updateTags(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        if (readableMap.containsKey(MTConstants.TAGS)) {
+            JSONArray tags = readableMap.getJSONArray(MTConstants.TAGS);
+            int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+            Set<String> tagSet = new HashSet<>();
+            for (int i = 0; i < tags.size(); i++) {
+                String tag = tags.getString(i);
+                tagSet.add(tag);
+            }
+            String[] arr = tagSet.toArray(new String[0]);
+            MTPushPrivatesApi.updateTag(mWXSDKInstance.getContext(), sequence, arr);
+        } else {
+            MTLogger.w("there are no " + MTConstants.TAGS);
+        }
+    }
+
+
+    @UniJSMethod(uiThread = true)
+    public void deleteTags(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        if (readableMap.containsKey(MTConstants.TAGS)) {
+            JSONArray tags = readableMap.getJSONArray(MTConstants.TAGS);
+            int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+            Set<String> tagSet = new HashSet<>();
+            for (int i = 0; i < tags.size(); i++) {
+                String tag = tags.getString(i);
+                tagSet.add(tag);
+            }
+            String[] arr = tagSet.toArray(new String[0]);
+            MTPushPrivatesApi.deleteTag(mWXSDKInstance.getContext(), sequence, arr);
+        } else {
+            MTLogger.w("there are no " + MTConstants.TAGS);
+        }
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void cleanTags(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+        MTPushPrivatesApi.deleteAllTag(mWXSDKInstance.getContext(), sequence);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void queryTag(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+        String tag = readableMap.getString(MTConstants.TAG);
+        MTPushPrivatesApi.queryTag(mWXSDKInstance.getContext(), sequence, tag);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void getAllTags(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+        MTPushPrivatesApi.queryAllTag(mWXSDKInstance.getContext(), sequence);
+    }
+
+
+    @UniJSMethod(uiThread = true)
+    public void setAlias(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+        String alias = readableMap.getString(MTConstants.ALIAS);
+        MTPushPrivatesApi.setAlias(mWXSDKInstance.getContext(), sequence, alias);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void deleteAlias(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+        MTPushPrivatesApi.clearAlias(mWXSDKInstance.getContext(), sequence);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void queryAlias(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        int sequence = readableMap.getIntValue(MTConstants.SEQUENCE);
+        MTPushPrivatesApi.getAlias(mWXSDKInstance.getContext(), sequence);
+    }
+
+
+
     @Override
     public void destroy() {
         MTLogger.e("destroy");

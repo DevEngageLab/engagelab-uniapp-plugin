@@ -10,7 +10,7 @@ plugins {
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId "com.jiguang.oaapp"
         minSdkVersion 21
@@ -30,7 +30,7 @@ android {
         // fa88db66d2a2f590d1222374  com.engagelab.app 正式环境
         manifestPlaceholders = [
                 // Engagelab appKey，需要与Engagelab控制台上的一样，与packageName是一对一关系
-                ENGAGELAB_PRIVATES_APPKEY : "7cf23c8544b73e7ea3b58e02",
+                ENGAGELAB_PRIVATES_APPKEY : "30dbb9be9384faa197ee6148",
                 // Engagelab appChannel，用于渠道统计
                 ENGAGELAB_PRIVATES_CHANNEL: "developer",
                 // Engagelab process，Engagelabsdk工作所在的进程，注意:开头
@@ -69,12 +69,10 @@ android {
 
     signingConfigs {
         config {
-            keyAlias 'testalias'
-            keyPassword '123456'
-            storeFile file('/Users/huangshuni/Library/Java/JavaVirtualMachines/corretto-1.8.0_352/Contents/Home/test.keystore')
-            storePassword '123456'
-            v1SigningEnabled true
-            v2SigningEnabled true
+            storeFile file("x.keystore")
+            storePassword "xxxtb123"
+            keyAlias "my-key-alias"
+            keyPassword "xxxtb123"
         }
     }
 

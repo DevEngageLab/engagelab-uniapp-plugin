@@ -2,13 +2,16 @@ package cn.engagelab.uniplugin_mtpush.receiver;
 
 import android.content.Context;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.engagelab.privates.common.component.MTCommonReceiver;
 import com.engagelab.privates.core.api.WakeMessage;
+import com.engagelab.privates.push.api.AliasMessage;
 import com.engagelab.privates.push.api.CustomMessage;
 import com.engagelab.privates.push.api.MobileNumberMessage;
 import com.engagelab.privates.push.api.NotificationMessage;
 import com.engagelab.privates.push.api.PlatformTokenMessage;
+import com.engagelab.privates.push.api.TagMessage;
 
 import cn.engagelab.uniplugin_mtpush.MTPushModule;
 import cn.engagelab.uniplugin_mtpush.common.MTConstants;
@@ -89,6 +92,26 @@ public class MTPushModuleReceiver extends MTCommonReceiver {
 //        MTPushHelper.sendEvent(MTConstants.COMMAND_EVENT, jsonObject);
 //    }
 
+
+    @Override
+    public void onTagMessage(Context context, TagMessage tagMessage) {
+        MTLogger.d("onTagMessage:" + tagMessage.toString());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(MTConstants.CODE,tagMessage.getCode());
+        jsonObject.put(MTConstants.TAG,tagMessage.getTags());
+        jsonObject.put(MTConstants.SEQUENCE,tagMessage.getSequence());
+        MTPushHelper.sendEvent(MTConstants.TAG_ALIAS_EVENT, jsonObject);
+    }
+
+    @Override
+    public void onAliasMessage(Context context, AliasMessage aliasMessage) {
+        MTLogger.d("onAliasMessage:" + aliasMessage.toString());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(MTConstants.CODE,aliasMessage.getCode());
+        jsonObject.put(MTConstants.ALIAS,aliasMessage.getAlias());
+        jsonObject.put(MTConstants.SEQUENCE,aliasMessage.getSequence());
+        MTPushHelper.sendEvent(MTConstants.TAG_ALIAS_EVENT, jsonObject);
+    }
 
     // 移动号码消息回调
     @Override
