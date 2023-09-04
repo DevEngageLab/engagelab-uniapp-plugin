@@ -2,7 +2,7 @@
  * Copyright (c) 2011 ~ 2017 Shenzhen MT. All rights reserved.
  */
 
-#define MTP_VERSION_NUMBER 3.5.0
+#define MTP_VERSION_NUMBER 4.3.0
 
 #import <Foundation/Foundation.h>
 
@@ -151,6 +151,14 @@ typedef NS_ENUM(NSUInteger, MTPushAuthorizationStatus) {
 /// @name Setup 启动相关
 ///----------------------------------------------------
 
+/*!
+ * @abstract 设置数据中心
+ *
+ * @param siteName 数据中心的名称.
+ *
+ * @discussion 不设置的话使用默认的数据中心。此接口必须在 初始化函数之前 调用.
+ */
++ (void)setSiteName:(NSString *)siteName;
 
 /*!
  * @abstract 启动SDK

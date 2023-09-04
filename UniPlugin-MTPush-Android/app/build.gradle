@@ -35,6 +35,8 @@ android {
                 ENGAGELAB_PRIVATES_CHANNEL: "developer",
                 // Engagelab process，Engagelabsdk工作所在的进程，注意:开头
                 ENGAGELAB_PRIVATES_PROCESS: ":remote",
+                //数据中心名称，填空""时，默认"Singapore"数据中心
+                ENGAGELAB_PRIVATES_SITE_NAME: "Singapore",
                 // mi client 配置，需要与小米控制台上的一样，还需要在AURORA控制台配置 server 配置
 //                XIAOMI_APPID            : "MI-2882303761519903247",
 //                XIAOMI_APPKEY           : "MI-5511990317247",

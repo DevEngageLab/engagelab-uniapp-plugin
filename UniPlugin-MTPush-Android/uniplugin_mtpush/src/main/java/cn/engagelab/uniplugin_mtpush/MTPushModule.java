@@ -94,6 +94,14 @@ public class MTPushModule extends UniDestroyableModule {
     }
 
     @UniJSMethod(uiThread = true)
+    public void setSiteName(String siteName) {
+        MTLogger.w("setSiteName-----");
+        updatePluginStatu();
+        MTCorePrivatesApi.configAppSiteName(mWXSDKInstance.getContext(),siteName);
+    }
+
+
+    @UniJSMethod(uiThread = true)
     public void initPushService() {
         MTLogger.w("initPushService-----");
         updatePluginStatu();

@@ -15,6 +15,7 @@
 #define infoConfig_MTPush_ISPRODUCTION      @"ISPRODUCTION"
 #define infoConfig_MTPush_ADVERTISINGID     @"ADVERTISINGID"
 #define infoConfig_MTPush_DEFAULTINIT       @"DEFAULTINIT"
+#define infoConfig_MTPush_SITENAME          @"SITENAME"
 
 
 #define CONNECT_ENABLE          @"connectEnable"

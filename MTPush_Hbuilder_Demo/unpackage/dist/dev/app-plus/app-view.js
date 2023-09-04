@@ -87,7 +87,7 @@
 /******/ ([
 /* 0 */
 /*!************************************************************************************************!*\
-  !*** /Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/main.js ***!
+  !*** /Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/main.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -115,7 +115,7 @@ if (typeof plus !== 'undefined') {
 /***/ }),
 /* 1 */
 /*!*******************************************************************************************************************!*\
-  !*** /Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages.json?{"type":"view"} ***!
+  !*** /Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages.json?{"type":"view"} ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -169,7 +169,7 @@ __definePage('pages/index/index', function () {
 /***/ }),
 /* 2 */
 /*!**************************************************************************************************************************!*\
-  !*** /Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?mpType=page ***!
+  !*** /Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?mpType=page ***!
   \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -207,7 +207,7 @@ component.options.__file = "pages/index/index.vue"
 /***/ }),
 /* 3 */
 /*!********************************************************************************************************************************************************!*\
-  !*** /Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=template&id=2be84a3c&mpType=page ***!
+  !*** /Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=template&id=2be84a3c&mpType=page ***!
   \********************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -228,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 /* 4 */
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=template&id=2be84a3c&mpType=page ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=template&id=2be84a3c&mpType=page ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -267,10 +267,12 @@ var render = function () {
       _c("v-uni-label", { attrs: { _i: 9 } }, [
         _vm._v("---------------------------------"),
       ]),
+      _c("br", { attrs: { _i: 10 } }),
       _c(
         "v-uni-button",
         {
-          attrs: { type: "primary", _i: 10 },
+          staticStyle: { left: "10pt" },
+          attrs: { size: "mini", type: "primary", _i: 11 },
           on: {
             click: function ($event) {
               return _vm.$handleViewEvent($event)
@@ -279,11 +281,11 @@ var render = function () {
         },
         [_vm._v("初始化")]
       ),
-      _c("br", { attrs: { _i: 11 } }),
       _c(
         "v-uni-button",
         {
-          attrs: { type: "primary", _i: 12 },
+          staticStyle: { left: "20pt" },
+          attrs: { size: "mini", type: "primary", _i: 12 },
           on: {
             click: function ($event) {
               return _vm.$handleViewEvent($event)
@@ -293,10 +295,12 @@ var render = function () {
         [_vm._v("打开通知设置界面")]
       ),
       _c("br", { attrs: { _i: 13 } }),
+      _c("br", { attrs: { _i: 14 } }),
       _c(
         "v-uni-button",
         {
-          attrs: { type: "primary", _i: 14 },
+          staticStyle: { left: "10pt" },
+          attrs: { size: "mini", type: "primary", _i: 15 },
           on: {
             click: function ($event) {
               return _vm.$handleViewEvent($event)
@@ -305,11 +309,11 @@ var render = function () {
         },
         [_vm._v("打开日志")]
       ),
-      _c("br", { attrs: { _i: 15 } }),
       _c(
         "v-uni-button",
         {
-          attrs: { type: "primary", _i: 16 },
+          staticStyle: { left: "20pt" },
+          attrs: { size: "mini", type: "primary", _i: 16 },
           on: {
             click: function ($event) {
               return _vm.$handleViewEvent($event)
@@ -318,11 +322,11 @@ var render = function () {
         },
         [_vm._v("关闭日志")]
       ),
-      _c("br", { attrs: { _i: 17 } }),
       _c(
         "v-uni-button",
         {
-          attrs: { type: "primary", _i: 18 },
+          staticStyle: { left: "30pt" },
+          attrs: { size: "mini", type: "primary", _i: 17 },
           on: {
             click: function ($event) {
               return _vm.$handleViewEvent($event)
@@ -330,6 +334,157 @@ var render = function () {
           },
         },
         [_vm._v("获取注册id")]
+      ),
+      _c("br", { attrs: { _i: 18 } }),
+      _c("br", { attrs: { _i: 19 } }),
+      _c("br", { attrs: { _i: 20 } }),
+      _c("v-uni-label", { attrs: { _i: 21 } }, [
+        _vm._v("---------------Tags/Alias------------------"),
+      ]),
+      _c("br", { attrs: { _i: 22 } }),
+      _c("br", { attrs: { _i: 23 } }),
+      _c("v-uni-input", {
+        attrs: { placeholder: "请使用tags,作为分隔符", _i: 24 },
+        model: {
+          value: _vm._$g(24, "v-model"),
+          callback: function ($$v) {
+            _vm.$handleVModelEvent(24, $$v)
+          },
+          expression: "inputTags",
+        },
+      }),
+      _c("br", { attrs: { _i: 25 } }),
+      _c("v-uni-input", {
+        attrs: { placeholder: "请输入alias", _i: 26 },
+        model: {
+          value: _vm._$g(26, "v-model"),
+          callback: function ($$v) {
+            _vm.$handleVModelEvent(26, $$v)
+          },
+          expression: "inputAlias",
+        },
+      }),
+      _c("br", { attrs: { _i: 27 } }),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "50rpx" },
+          attrs: { type: "primary", _i: 28 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("增加tags")]
+      ),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "50rpx" },
+          attrs: { type: "primary", _i: 29 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("覆盖tags")]
+      ),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "50rpx" },
+          attrs: { type: "primary", _i: 30 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("查询Tags")]
+      ),
+      _c("br", { attrs: { _i: 31 } }),
+      _c("br", { attrs: { _i: 32 } }),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "30rpx" },
+          attrs: { type: "primary", _i: 33 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("删除tags")]
+      ),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "30rpx" },
+          attrs: { type: "primary", _i: 34 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("清空tags")]
+      ),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "30rpx" },
+          attrs: { type: "primary", _i: 35 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("验证tag")]
+      ),
+      _c("br", { attrs: { _i: 36 } }),
+      _c("br", { attrs: { _i: 37 } }),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "30rpx" },
+          attrs: { type: "primary", _i: 38 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("设置 Alias")]
+      ),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "30rpx" },
+          attrs: { type: "primary", _i: 39 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("删除Alias")]
+      ),
+      _c(
+        "v-uni-label",
+        {
+          staticStyle: { "margin-right": "30rpx" },
+          attrs: { type: "primary", _i: 40 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("查询Alias")]
       ),
     ],
     1
@@ -344,7 +499,7 @@ render._withStripped = true
 /***/ }),
 /* 5 */
 /*!**************************************************************************************************************************************************!*\
-  !*** /Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=script&lang=js&mpType=page ***!
+  !*** /Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=script&lang=js&mpType=page ***!
   \**************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -359,7 +514,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 /* 6 */
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=script&lang=js&mpType=page ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--13-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/pages/index/index.vue?vue&type=script&lang=js&mpType=page ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -515,7 +670,7 @@ function normalizeComponent (
 /***/ }),
 /* 8 */
 /*!*********************************************************************************************************************************!*\
-  !*** /Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/App.vue?vue&type=style&index=0&lang=css& ***!
+  !*** /Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/App.vue?vue&type=style&index=0&lang=css& ***!
   \*********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -530,7 +685,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 /* 9 */
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/App.vue?vue&type=style&index=0&lang=css& ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/App.vue?vue&type=style&index=0&lang=css& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -544,14 +699,14 @@ if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/app-vue-style-loader/lib/addStylesClient.js */ 12).default
-var update = add("3c9572a2", content, false, {"sourceMap":false,"shadowMode":false});
+var update = add("f46261ea", content, false, {"sourceMap":false,"shadowMode":false});
 // Hot Module Replacement
 if(false) {}
 
 /***/ }),
 /* 10 */
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/huangshuni/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/App.vue?vue&type=style&index=0&lang=css& ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/view/style.js!/Users/shunihuang/Desktop/JGPlugins/engagelab-uniapp-plugin/MTPush_Hbuilder_Demo/App.vue?vue&type=style&index=0&lang=css& ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -560,7 +715,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 11);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*每个页面公共css */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*每个页面公共css */\n", ""]);
 // Exports
 module.exports = exports;
 

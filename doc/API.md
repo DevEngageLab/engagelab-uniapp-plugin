@@ -19,6 +19,20 @@ var mtpushModule = uni.requireNativePlugin("EL-MTPush");
 mtpushModule.setLoggerEnable(true);
 ```
 
+## 设置 SiteName 
+
+### API - setSiteName(String)
+设置数据中心, 在初始化函数（initPushService）之前设置。
+
+#### 参数说明
+-  数据中心的名称, 可不设置，不设置默认为新加坡数据中心
+-  android 如果调用该接口设置，那就不会使用package.json中的（MTPUSH_SITENAME_ANDROID）配置。
+
+#### 示例
+
+```javascript
+mtpushModule.setSiteName("Singapore");
+```
 
 ## 获取 RegistrationID
 

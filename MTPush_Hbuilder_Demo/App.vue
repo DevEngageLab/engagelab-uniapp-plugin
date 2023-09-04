@@ -20,6 +20,7 @@
 			
 			// mtpushModule.setCountryCode("US");
 			// mtpushModule.setTcpSSL(true)
+			mtpushModule.setSiteName("Singapore");
 			mtpushModule.setLoggerEnable(true);
 			mtpushModule.initPushService();
 			mtpushModule.addConnectEventListener(result=>{

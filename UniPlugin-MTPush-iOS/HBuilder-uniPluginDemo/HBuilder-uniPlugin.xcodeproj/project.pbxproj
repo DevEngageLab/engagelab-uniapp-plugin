@@ -85,7 +85,7 @@
 		2FDE6A56297147F2004C7701 /* DCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDE6A55297147F2004C7701 /* DCloud.swift */; };
 		4FA53F7C26E5D14400BAD6A0 /* uni-jsframework-vue3.js in Resources */ = {isa = PBXBuildFile; fileRef = 4FA53F7B26E5D14400BAD6A0 /* uni-jsframework-vue3.js */; };
 		4FE3666A254FE5FC00DCD173 /* libuchardet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE36669254FE5FB00DCD173 /* libuchardet.a */; };
-		62195C5F2A160791002BEDF2 /* mtpush-ios-3.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62195C5E2A160791002BEDF2 /* mtpush-ios-3.5.0.a */; };
+		62F3840F2AA1BE6600DED7B4 /* mtpush-ios-4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F3840E2AA1BE6600DED7B4 /* mtpush-ios-4.3.0.a */; };
 		67065F3A2243868400DC71CA /* Default-896h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67065F1E2243868300DC71CA /* Default-896h@2x.png */; };
 		67065F3B2243868400DC71CA /* Default-Landscape-812h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67065F1F2243868300DC71CA /* Default-Landscape-812h@3x.png */; };
 		67065F3C2243868400DC71CA /* Default-Landscape-896h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 67065F202243868300DC71CA /* Default-Landscape-896h@3x.png */; };
@@ -443,7 +443,7 @@
 		4FF0ABC6259062C700A54D59 /* SDImageCachesManagerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCachesManagerOperation.h; sourceTree = "<group>"; };
 		4FF0ABC7259062C700A54D59 /* UIColor+SDHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SDHexString.h"; sourceTree = "<group>"; };
 		4FF0ABC8259062C700A54D59 /* SDImageAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageAssetManager.h; sourceTree = "<group>"; };
-		62195C5E2A160791002BEDF2 /* mtpush-ios-3.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "mtpush-ios-3.5.0.a"; path = "../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/mtpush-ios-3.5.0.a"; sourceTree = "<group>"; };
+		62F3840E2AA1BE6600DED7B4 /* mtpush-ios-4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "mtpush-ios-4.3.0.a"; path = "../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/mtpush-ios-4.3.0.a"; sourceTree = "<group>"; };
 		67065F1E2243868300DC71CA /* Default-896h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-896h@2x.png"; sourceTree = "<group>"; };
 		67065F1F2243868300DC71CA /* Default-Landscape-812h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-812h@3x.png"; sourceTree = "<group>"; };
 		67065F202243868300DC71CA /* Default-Landscape-896h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-896h@3x.png"; sourceTree = "<group>"; };
@@ -735,7 +735,6 @@
 				24AFD7FF1CB50C3200C0F062 /* AlipaySDK.framework in Frameworks */,
 				24AFD8021CB50C3200C0F062 /* TencentOpenAPI.framework in Frameworks */,
 				24BD5AF21C994A1700B05AA2 /* libicucore.tbd in Frameworks */,
-				62195C5F2A160791002BEDF2 /* mtpush-ios-3.5.0.a in Frameworks */,
 				24BD5AF01C99494A00B05AA2 /* libz.tbd in Frameworks */,
 				24BD5AEE1C99494200B05AA2 /* libxml2.tbd in Frameworks */,
 				67D6390A21C12945005D1E8F /* libbaiduSpeech.a in Frameworks */,
@@ -747,6 +746,7 @@
 				240905031C200AEF0070786F /* CoreBluetooth.framework in Frameworks */,
 				8E6E37AC1B0E1B580036EB48 /* ImageIO.framework in Frameworks */,
 				8E163D021A8D208500308A8B /* AssetsLibrary.framework in Frameworks */,
+				62F3840F2AA1BE6600DED7B4 /* mtpush-ios-4.3.0.a in Frameworks */,
 				8EED6596198A574C000A4449 /* CoreLocation.framework in Frameworks */,
 				8EED65A8198A6273000A4449 /* OpenGLES.framework in Frameworks */,
 				8EED65A6198A626B000A4449 /* MapKit.framework in Frameworks */,
@@ -1079,7 +1079,7 @@
 		8EED629A198A1D13000A4449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				62195C5E2A160791002BEDF2 /* mtpush-ios-3.5.0.a */,
+				62F3840E2AA1BE6600DED7B4 /* mtpush-ios-4.3.0.a */,
 				2FDE6A52297147E1004C7701 /* GTSDK.xcframework */,
 				2F4864C6293E121C00142360 /* DCUniRecord.framework */,
 				2F5FAE6C2865DB9800430AFA /* BMKLocationKit.framework */,

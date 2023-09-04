@@ -145,6 +145,12 @@ UNI_EXPORT_METHOD(@selector(addConnectEventListener:))
     [MTPushStore shared].connectEventCallback = callback;
 }
 
+UNI_EXPORT_METHOD(@selector(setSiteName:))
+#pragma 数据中心
+- (void)setSiteName:(NSString *)siteName {
+    [self logger:@"setSiteName" log:nil];
+    [MTPushService setSiteName:siteName];
+}
 
 
 UNI_EXPORT_METHOD(@selector(addNotificationListener:))

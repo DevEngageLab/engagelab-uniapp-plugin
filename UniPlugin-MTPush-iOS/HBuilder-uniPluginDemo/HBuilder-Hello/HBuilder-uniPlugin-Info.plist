@@ -23,13 +23,15 @@
 	<key>MTPush</key>
 	<dict>
 		<key>APP_KEY</key>
-		<string>c571017eb5459d84170c8bf0</string>
+		<string>fcc545917674d6f06c141704</string>
+		<key>SITENAME</key>
+		<string>Singapore</string>
 		<key>CHANNEL</key>
 		<string>test</string>
 		<key>ADVERTISINGID</key>
 		<string></string>
 		<key>DEFAULTINIT</key>
-		<string>true</string>
+		<string>false</string>
 		<key>ISPRODUCTION</key>
 		<string></string>
 	</dict>
