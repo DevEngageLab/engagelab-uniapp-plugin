@@ -53,6 +53,10 @@ UNI_EXPORT_METHOD(@selector(setTcpSSL:))
 - (void)setBadge:(NSInteger)badge {
     [self logger:@"setBadge with params" log:@(badge)];
     [MTPushService setBadge:badge];
+    if (badge < 0) {
+        badge = 0;
+    }
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:badge];
 }
 
 - (void)addMobileNumberListener:(UniModuleKeepAliveCallback)callback {
