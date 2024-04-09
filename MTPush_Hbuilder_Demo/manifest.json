@@ -63,13 +63,13 @@
         },
         "nativePlugins" : {
             "EL-MTPush" : {
-                "MTPUSH_APPKEY_IOS" : "",
+                "MTPUSH_APPKEY_IOS" : "fcc545917674d6f06c141704",
                 "MTPUSH_CHANNEL_IOS" : "test",
                 "MTPUSH_ISPRODUCTION_IOS" : "",
                 "MTPUSH_ADVERTISINGID_IOS" : "",
                 "MTPUSH_DEFAULTINIT_IOS" : "",
                 "MTPUSH_SITENAME_IOS" : "",
-                "MTPUSH_APPKEY_ANDROID" : "",
+                "MTPUSH_APPKEY_ANDROID" : "30dbb9be9384faa197ee6148",
                 "MTPUSH_CHANNEL_ANDROID" : "test",
                 "MTPUSH_PROCESS_ANDROID" : ":remote",
                 "MTPUSH_SITENAME_ANDROID" : "",

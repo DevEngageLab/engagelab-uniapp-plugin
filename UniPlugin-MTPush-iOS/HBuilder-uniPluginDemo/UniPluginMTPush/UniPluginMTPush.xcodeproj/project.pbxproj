@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,8 @@
 		2A21737025AEE7390084EBAE /* MTPushProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A21736E25AEE7390084EBAE /* MTPushProxy.m */; };
 		2A21737725AF4BFF0084EBAE /* MTPushStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A21737525AF4BFF0084EBAE /* MTPushStore.h */; };
 		2A21737825AF4BFF0084EBAE /* MTPushStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A21737625AF4BFF0084EBAE /* MTPushStore.m */; };
-		2A3A04F02919425B00A2DBE1 /* MTPushService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A3A04EF2919425B00A2DBE1 /* MTPushService.h */; };
+		621FDFB02BC553AC006BA0D6 /* mtpush-ios-4.3.3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FDFAF2BC553AC006BA0D6 /* mtpush-ios-4.3.3.xcframework */; };
+		621FDFB22BC553BA006BA0D6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 621FDFB12BC553BA006BA0D6 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		2A21736E25AEE7390084EBAE /* MTPushProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPushProxy.m; sourceTree = "<group>"; };
 		2A21737525AF4BFF0084EBAE /* MTPushStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPushStore.h; sourceTree = "<group>"; };
 		2A21737625AF4BFF0084EBAE /* MTPushStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPushStore.m; sourceTree = "<group>"; };
-		2A3A04EF2919425B00A2DBE1 /* MTPushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTPushService.h; path = "../../../MTPush_Hbuilder_Demo/nativeplugins/EL-MTPush/ios/MTPushService.h"; sourceTree = "<group>"; };
+		621FDFAF2BC553AC006BA0D6 /* mtpush-ios-4.3.3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "mtpush-ios-4.3.3.xcframework"; sourceTree = "<group>"; };
+		621FDFB12BC553BA006BA0D6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621FDFB02BC553AC006BA0D6 /* mtpush-ios-4.3.3.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,7 +45,6 @@
 		2A21730D25ADE1380084EBAE = {
 			isa = PBXGroup;
 			children = (
-				2A3A04EF2919425B00A2DBE1 /* MTPushService.h */,
 				2A21731925ADE1380084EBAE /* UniPluginJPush */,
 				2A21731825ADE1380084EBAE /* Products */,
 			);
@@ -59,6 +61,8 @@
 		2A21731925ADE1380084EBAE /* UniPluginJPush */ = {
 			isa = PBXGroup;
 			children = (
+				621FDFAF2BC553AC006BA0D6 /* mtpush-ios-4.3.3.xcframework */,
+				621FDFB12BC553BA006BA0D6 /* PrivacyInfo.xcprivacy */,
 				2A21731B25ADE1380084EBAE /* Info.plist */,
 				2A21734C25ADE6AD0084EBAE /* MTPushModule.h */,
 				2A21734D25ADE6AD0084EBAE /* MTPushModule.m */,
@@ -80,7 +84,6 @@
 				2A21736F25AEE7390084EBAE /* MTPushProxy.h in Headers */,
 				2A21737725AF4BFF0084EBAE /* MTPushStore.h in Headers */,
 				2A21734E25ADE6AD0084EBAE /* MTPushModule.h in Headers */,
-				2A3A04F02919425B00A2DBE1 /* MTPushService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621FDFB22BC553BA006BA0D6 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
