@@ -161,6 +161,10 @@
                     "des": "厂商VIVO-appId,示例：12345678",
                     "placeholder": "VIVO_APPID"
                 },
+                "MTPUSH_HONOR_APPID":{
+                    "des": "厂商HONOR-appId,示例：12345678",
+                    "placeholder": "HONOR_APPID"
+                },
                 "MTPUSH_HUAWEI_APPID":{
                     "des": "厂商HUAWEI-appId,示例：appid=12346578",
                     "key": "com.huawei.hms.client.appid"

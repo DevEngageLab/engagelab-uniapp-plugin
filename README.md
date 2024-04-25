@@ -44,6 +44,7 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 | MTPUSH_OPPO_APPSECRET   | android oppo appSecret（选填）                            | OP-12345678 |
 | MTPUSH_VIVO_APPKEY   | android vivo appkey（选填）                                  | 12345678 |
 | MTPUSH_VIVO_APPID   | android vivo appId（选填）                                    | 12345678 |
+| MTPUSH_HONOR_APPID   | android honor appId（选填）                                    | 12345678 |
 | MTPUSH_MEIZU_APPKEY   | android meizu appkey（选填）                                | MZ-12345678 |
 | MTPUSH_MEIZU_APPID   | android meizu appId（选填）                                  | MZ-12345678 |
 | MTPUSH_XIAOMI_GLOBAL_APPKEY   | android xiaomi global appKey（选填）                | MI-12345678 |
@@ -63,7 +64,7 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 
 
 #### Android 厂商配置说明
-插件支持 OPPO VIVO 魅族 小米 华为 FCM六大厂商推送接入，如需接入请对应配置上述厂商信息。
+插件支持 OPPO VIVO 魅族 小米 华为 FCM 荣耀七大厂商推送接入，如需接入请对应配置上述厂商信息。
 
 - [厂商通道参数申请指南](https://jiguang-docs.yuque.com/staff-mg3p4r/vc4ysl/ca9ssa1c4izt4b5u?singleDoc#)
 

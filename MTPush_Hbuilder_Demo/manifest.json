@@ -63,15 +63,15 @@
         },
         "nativePlugins" : {
             "EL-MTPush" : {
-                "MTPUSH_APPKEY_IOS" : "fcc545917674d6f06c141704",
-                "MTPUSH_CHANNEL_IOS" : "test",
+                "MTPUSH_APPKEY_IOS" : "",
+                "MTPUSH_CHANNEL_IOS" : "",
                 "MTPUSH_ISPRODUCTION_IOS" : "",
                 "MTPUSH_ADVERTISINGID_IOS" : "",
                 "MTPUSH_DEFAULTINIT_IOS" : "",
                 "MTPUSH_SITENAME_IOS" : "",
-                "MTPUSH_APPKEY_ANDROID" : "30dbb9be9384faa197ee6148",
-                "MTPUSH_CHANNEL_ANDROID" : "test",
-                "MTPUSH_PROCESS_ANDROID" : ":remote",
+                "MTPUSH_APPKEY_ANDROID" : "",
+                "MTPUSH_CHANNEL_ANDROID" : "",
+                "MTPUSH_PROCESS_ANDROID" : "",
                 "MTPUSH_SITENAME_ANDROID" : "",
                 "MTPUSH_XIAOMI_GLOBAL_APPKEY" : "",
                 "MTPUSH_XIAOMI_GLOBAL_APPID" : "",
@@ -82,6 +82,7 @@
                 "MTPUSH_OPPO_APPSECRET" : "",
                 "MTPUSH_VIVO_APPKEY" : "",
                 "MTPUSH_VIVO_APPID" : "",
+                "MTPUSH_HONOR_APPID" : "",
                 "MTPUSH_HUAWEI_APPID" : "",
                 "MTPUSH_GOOGLE_API_KEY" : "",
                 "MTPUSH_GOOGLE_APP_ID" : "",
@@ -191,6 +192,11 @@
                         },
                         "MTPUSH_VIVO_APPID" : {
                             "des" : "厂商VIVO-appId,示例：12345678",
+                            "key" : "",
+                            "value" : ""
+                        },
+                        "MTPUSH_HONOR_APPID" : {
+                            "des" : "厂商HONOR-appId,示例：12345678",
                             "key" : "",
                             "value" : ""
                         },

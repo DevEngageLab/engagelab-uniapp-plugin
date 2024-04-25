@@ -40,6 +40,7 @@
         <activity
             android:name="io.dcloud.PandoraEntry"
             android:theme="@style/TranslucentTheme"
+            android:exported="true"
             android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
@@ -65,6 +66,7 @@
 
         <activity
             android:name="io.dcloud.PandoraEntryActivity"
+            android:exported="false"
             android:launchMode="singleTask"
             android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale|keyboard|smallestScreenSize|screenLayout|screenSize"
             android:hardwareAccelerated="true"
