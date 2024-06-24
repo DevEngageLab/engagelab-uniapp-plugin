@@ -59,10 +59,6 @@
                 "MTPUSH_DEFAULTINIT_IOS": {
                     "des": "[iOS]是否默认初始化，是填true，不是填false或者不填",
                     "key": "MTPush:DEFAULTINIT"
-                },
-                "MTPUSH_SITENAME_IOS": {
-                    "des": "[iOS]数据中心的名称,可不填，默认为新加坡数据中心",
-                    "key": "MTPush:SITENAME"
                 }
             }
         },
@@ -121,17 +117,13 @@
 				    "des": "[Android] Engagelab process，Engagelabsdk工作所在的进程，请填写 ':remote', 注意:开头",
 				    "placeholder": "ENGAGELAB_PRIVATES_PROCESS"
 				},
-                "MTPUSH_SITENAME_ANDROID": {
-                    "des": "[Android]数据中心的名称,可不填，默认为新加坡数据中心",
-                    "placeholder": "ENGAGELAB_PRIVATES_SITE_NAME"
+                "MTPUSH_XIAOMI_APPKEY":{
+                    "des": "厂商XIAOMI-appKey,示例：MI-12345678",
+                    "placeholder": "XIAOMI_APPKEY"
                 },
-                "MTPUSH_XIAOMI_GLOBAL_APPKEY":{
-                    "des": "厂商XIAOMI GLOBA-appKey,示例：MI-12345678",
-                    "placeholder": "XIAOMI_GLOBAL_APPKEY"
-                },
-                "MTPUSH_XIAOMI_GLOBAL_APPID":{
-                    "des": "厂商XIAOMI GLOBAL-appId,示例：MI-12345678",
-                    "placeholder": "XIAOMI_GLOBAL_APPID"
+                "MTPUSH_XIAOMI_APPID":{
+                    "des": "厂商XIAOMI-appId,示例：MI-12345678",
+                    "placeholder": "XIAOMI_APPID"
                 },
                 "MTPUSH_MEIZU_APPKEY":{
                     "des": "厂商MEIZU-appKey,示例：MZ-12345678",

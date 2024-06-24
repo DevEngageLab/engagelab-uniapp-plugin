@@ -24,8 +24,6 @@
 	<dict>
 		<key>APP_KEY</key>
 		<string>fcc545917674d6f06c141704</string>
-		<key>SITENAME</key>
-		<string>Singapore</string>
 		<key>CHANNEL</key>
 		<string>test</string>
 		<key>ADVERTISINGID</key>

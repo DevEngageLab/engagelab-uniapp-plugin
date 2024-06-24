@@ -68,13 +68,11 @@
                 "MTPUSH_ISPRODUCTION_IOS" : "",
                 "MTPUSH_ADVERTISINGID_IOS" : "",
                 "MTPUSH_DEFAULTINIT_IOS" : "",
-                "MTPUSH_SITENAME_IOS" : "",
-                "MTPUSH_APPKEY_ANDROID" : "",
-                "MTPUSH_CHANNEL_ANDROID" : "",
-                "MTPUSH_PROCESS_ANDROID" : "",
-                "MTPUSH_SITENAME_ANDROID" : "",
-                "MTPUSH_XIAOMI_GLOBAL_APPKEY" : "",
-                "MTPUSH_XIAOMI_GLOBAL_APPID" : "",
+                "MTPUSH_APPKEY_ANDROID" : "30dbb9be9384faa197ee6148",
+                "MTPUSH_CHANNEL_ANDROID" : "developer",
+                "MTPUSH_PROCESS_ANDROID" : ":remote",
+                "MTPUSH_XIAOMI_APPKEY" : "",
+                "MTPUSH_XIAOMI_APPID" : "",
                 "MTPUSH_MEIZU_APPKEY" : "",
                 "MTPUSH_MEIZU_APPID" : "",
                 "MTPUSH_OPPO_APPKEY" : "",
@@ -125,11 +123,6 @@
                             "key" : "MTPush:DEFAULTINIT",
                             "value" : ""
                         },
-                        "MTPUSH_SITENAME_IOS" : {
-                            "des" : "[iOS]数据中心的名称,可不填，默认为新加坡数据中心",
-                            "key" : "MTPush:SITENAME",
-                            "value" : ""
-                        },
                         "MTPUSH_APPKEY_ANDROID" : {
                             "des" : "[Android]EngageLab portal配置应用信息时分配的AppKey",
                             "key" : "",
@@ -145,18 +138,13 @@
                             "key" : "",
                             "value" : ""
                         },
-                        "MTPUSH_SITENAME_ANDROID" : {
-                            "des" : "[Android]数据中心的名称,可不填，默认为新加坡数据中心",
+                        "MTPUSH_XIAOMI_APPKEY" : {
+                            "des" : "厂商XIAOMI-appKey,示例：MI-12345678",
                             "key" : "",
                             "value" : ""
                         },
-                        "MTPUSH_XIAOMI_GLOBAL_APPKEY" : {
-                            "des" : "厂商XIAOMI GLOBA-appKey,示例：MI-12345678",
-                            "key" : "",
-                            "value" : ""
-                        },
-                        "MTPUSH_XIAOMI_GLOBAL_APPID" : {
-                            "des" : "厂商XIAOMI GLOBAL-appId,示例：MI-12345678",
+                        "MTPUSH_XIAOMI_APPID" : {
+                            "des" : "厂商XIAOMI-appId,示例：MI-12345678",
                             "key" : "",
                             "value" : ""
                         },

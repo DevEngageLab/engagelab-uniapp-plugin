@@ -60,11 +60,6 @@
     if (![advertisingId isKindOfClass:[NSString class]] || advertisingId == nil || advertisingId.length == 0) {
         advertisingId = nil;
     }
-    // siteName
-    NSString *siteName = dict[infoConfig_MTPush][infoConfig_MTPush_SITENAME];
-    if (siteName && [siteName isKindOfClass:[NSString class]] && siteName.length > 0) {
-        [MTPushService setSiteName:siteName];
-    }
     [MTPushService setupWithOption:launchingOption appKey:appkey channel:channel apsForProduction:isProduction advertisingIdentifier:advertisingId];
 
 }
