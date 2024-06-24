@@ -38,7 +38,7 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 | MTPUSH_APPKEY_ANDROID | engagelab appkey (必填) | EngageLab portal配置应用信息时分配的AppKey  |
 | MTPUSH_CHANNEL_ANDROID | engagelab channel (选填) | 用于统计分发渠道，不需要可填默认值developer-default |
 | MTPUSH_PROCESS_ANDROID | Engagelabsdk work thread (必填) | Engagelab process，Engagelabsdk工作所在的进程，请填写 :remote  |
-|MTPUSH_SITENAME_ANDROID | android 数据中心的名称（选填）| 您在ipotal设置的数据中心的名称，不填默认新加坡数据中心 |
+|~~MTPUSH_SITENAME_ANDROID~~ | ~~android 数据中心的名称（选填）v1.1.1版本删除~~| ~~您在ipotal设置的数据中心的名称，不填默认新加坡数据中心~~ |
 | MTPUSH_OPPO_APPKEY   | android oppo appkey（选填）                                  | OP-12345678 |
 | MTPUSH_OPPO_APPID   | android oppo appid（选填）                                    | OP-12345678 |
 | MTPUSH_OPPO_APPSECRET   | android oppo appSecret（选填）                            | OP-12345678 |
@@ -47,8 +47,10 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 | MTPUSH_HONOR_APPID   | android honor appId（选填）                                    | 12345678 |
 | MTPUSH_MEIZU_APPKEY   | android meizu appkey（选填）                                | MZ-12345678 |
 | MTPUSH_MEIZU_APPID   | android meizu appId（选填）                                  | MZ-12345678 |
-| MTPUSH_XIAOMI_GLOBAL_APPKEY   | android xiaomi global appKey（选填）                | MI-12345678 |
-| MTPUSH_XIAOMI_GLOBAL_APPID   | android xiaomi global appId（选填）                  | MI-12345678 |
+| ~~MTPUSH_XIAOMI_GLOBAL_APPKEY~~   | ~~android xiaomi global appKey（选填）v1.1.1版本删除~~             | ~~MI-12345678~~ |
+| ~~MTPUSH_XIAOMI_GLOBAL_APPID~~   | ~~android xiaomi global appId（选填）v1.1.1版本删除~~                | ~~MI-12345678~~ |
+| MTPUSH_XIAOMI_APPKEY  | android xiaomi appKey（选填）              | MI-12345678 |
+| MTPUSH_XIAOMI_APPID  | android xiaomi appId（选填）                | MI-12345678 |
 | MTPUSH_HUAWEI_APPID   | android huawei appId（选填）                                | appid=12345678 |
 | MTPUSH_GOOGLE_API_KEY  | G-拼接google-services.json下的current_key（选填）          | G-12345678 |
 | MTPUSH_GOOGLE_APP_ID  | G-拼接google-services.json下的mobilesdk_app_id（选填）      | G-12345678 |
@@ -59,7 +61,7 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 |MTPUSH_CHANNEL_IOS| engagelab channel (选填) |用于统计分发渠道，不需要可填默认值developer-default|
 |MTPush_ISPRODUCTION_IOS|iOS 是否是生产环境（选填）|是填true,不是填false或者不填|
 |MTPush_ADVERTISINGID_IOS|iOS 广告标识符（IDFA）（选填）| 如果不需要使用IDFA，可不填|
-|MTPUSH_SITENAME_IOS| iOS 数据中心的名称（选填）| 您在ipotal设置的数据中心的名称，不填默认新加坡数据中心 |
+|~~MTPUSH_SITENAME_IOS~~| ~~iOS 数据中心的名称（选填）v1.1.1版本删除~~| ~~您在ipotal设置的数据中心的名称，不填默认新加坡数据中心~~ |
 |MTPush_DEFAULTINITPUSH_IOS| iOS 是否默认初始化（选填）|是填true，不是填false或者不填|
 
 
