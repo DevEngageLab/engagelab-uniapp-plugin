@@ -1,41 +1,40 @@
 # MTPush Hbuilder API Only for iOS
 
-## 获取通知的授权状态 
+## request Notification Authorization status
 ### API - requestNotificationAuthorization(CALLBACK)
-获取通知的授权状态
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|status|number|0 - NotDetermined 1 - Denied 2 - Authorized 3 - Provisional (ios 12 及以上才有)|
+|status|number|0 - NotDetermined 1 - Denied 2 - Authorized 3 - Provisional (Only available for ios 12 and above)|
 
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.requestNotificationAuthorization((result)=>{
 		let status = result.status
 })
 ```
 
-## 本地通知事件回调
+## addLocalNotificationListener
 
 ### API - addLocalNotificationListener(CALLBACK)
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|messageID|string|唯一标识通知消息的ID|
-|title|string|对应“通知标题”字段|
-|content|string|对应“通知内容”字段|
-|extras|dictionary|对应“附加内容”字段|
+|messageID|string|An ID that uniquely identifies the notification message|
+|title|string|Corresponds to the "Notification Title" field|
+|content|string|Corresponding to the "Notification Content" field|
+|extras|dictionary|Corresponds to the "extras" field|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.addLocalNotificationListener(result=>{
 				let messageID = result.messageID
@@ -46,23 +45,23 @@ mtpushModule.addLocalNotificationListener(result=>{
 			})
 ```
 
-## 添加一个本地通知
+## addLocalNotification
 
 ### API - addLocalNotification(Object)
-添加一个本地通知
+add a local notification
 
-### 参数说明
+### Parameter Description
 
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|messageID|string|唯一标识通知消息的ID|
-|title|string|对应“通知标题”字段|
-|content|string|对应“通知内容”字段|
-|extras|dictionary|对应“附加内容”字段|
+|messageID|string|An ID that uniquely identifies the notification message|
+|title|string|Corresponds to the "Notification Title" field|
+|content|string|Corresponding to the "Notification Content" field|
+|extras|dictionary|Corresponds to the "extras" field|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.addLocalNotification({
 					messageID:'123',
@@ -75,32 +74,32 @@ mtpushModule.addLocalNotification({
 				})
 ```
 
-## 移除指定的本地通知
+## Remove specified local notification
 
 ### API - removeLocalNotification(Object)
-移除指定的本地通知
+Remove specified local notification
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|messageID|string|唯一标识通知消息的ID|
+|messageID|string|An ID that uniquely identifies the notification message|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.removeLocalNotification({
 					messageID:'123'
 				})
 ```
 
-## 移除所有的本地通知
+## clearLocalNotifications
 
 ### API - clearLocalNotifications()
-移除所有的本地通知
+clear all local notifications
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.clearLocalNotifications()
 ```

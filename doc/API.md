@@ -1,55 +1,55 @@
 # MTPush Hbuilder API
 
-## 引用方式
+## Reference method
 ```javascript
 var mtpushModule = uni.requireNativePlugin("EL-MTPush");
 ```
 
-## 设置 debug 模式
+## Set debug mode
 
 ### API - setLoggerEnable(Boolean)
-开启 debug 模式，默认是关闭
+Set debug mode, the default is off
 
-#### 参数说明
-- true - 开启，false - 关闭
+#### Parameter Description
+- true - on，false - off
 
-#### 示例
+#### Example
 
 ```javascript
 mtpushModule.setLoggerEnable(true);
 ```
 
-## 设置 SiteName 
+## Set SiteName
 
 ### API - setSiteName(String)
-设置数据中心, 在初始化函数（initPushService）之前设置。
+Set the data center before the initialization function (initPushService).
 
-#### 参数说明
--  数据中心的名称, 可不设置，不设置默认为新加坡数据中心
--  android 如果调用该接口设置，那就不会使用package.json中的（MTPUSH_SITENAME_ANDROID）配置。
+#### Parameter Description
+-  The name of the data center can be left unset. If not set, the default is the Singapore data center.
+-  android -  If this interface setting is called, the (MTPUSH_SITENAME_ANDROID) configuration in package.json will not be used.
 
-#### 示例
+#### Example
 
 ```javascript
 mtpushModule.setSiteName("Singapore");
 ```
 
-## 获取 RegistrationID
+##Get RegistrationID
 
 ### API - getRegistrationID(CALLBACK)
-调用此 API 来取得应用程序对应的 RegistrationID。
-只有当应用程序成功注册到 JPush 的服务器时才返回对应的值，否则返回空字符串
+Call this API to get the RegistrationID.
+Only when the registration is successful, the Engagelab server returns the corresponding value, otherwise it returns an empty string.
 
-#### 参数说明
+#### Parameter Description
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|code|number|状态码 0 - 成功， 1011 - iOS模拟器调用会报此错误|
-|registerID|string|返回的 registrationID|
+|code|number|code 0 - success， 1011 - when use iOS simulator will report this error|
+|registerID|string|registrationID|
 
 
-#### 示例
+#### Example
 
 ```javascript
 mtpushModule.getRegistrationID(result=>{
@@ -57,53 +57,53 @@ mtpushModule.getRegistrationID(result=>{
 				})	
 ```
 
-## 打开通知设置页面 
+## Open the notification settings page
 
 ### API - openSettingsForNotification(CALLBACK) 
-跳转至系统设置页面
+Open the notification settings page
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|code|number|0 - 成功 1 - 失败|
+|code|number|0 - success 1 - failure|
 
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.openSettingsForNotification((result)=>{
 		let code = result.code
 })
 ```
 
-## 初始化函数
+## initialization method
 
 ### API - initPushService()
 
-初始化SDK
-iOS 说明:如果在mainfest.json里 将MTPUSH_DEFAULTINITJPUSH_IOS值配置为"true"，插件内部将默认初始化MTPush，用户则不需要调用该初始化方法。
+initialization SDK
+iOS Note: If the MTPUSH_DEFAULTINITJPUSH_IOS value is configured as "true" in mainfest.json, MTPush will be initialized by default inside the plugin, and users do not need to call this initialization method.
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.initPushService()
 ```
 
 
-## 连接状态回调
+## Listen for connection status callbacks
 
 ### API - addConnectEventListener(CALLBACK)
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|connectEnable|boolean|true - 已连接, false - 未连接|
+|connectEnable|boolean|true - connected, false - not connected|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.addConnectEventListener(result=>{
 				let connectEnable = result.connectEnable
@@ -112,28 +112,28 @@ mtpushModule.addConnectEventListener(result=>{
 
 
 
-## 通知事件回调
+## Listen for notification event callbacks
 
 ###  API - addNotificationListener(CALLBACK)
-通过CALLBACK 的 notificationEventType字段 区分 是 通知收到 还是 点击通知
+Distinguish whether the notification is received or clicked through the notificationEventType field of CALLBACK
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|messageID|string|唯一标识通知消息的 ID|
-|title|string|对应 Portal 推送通知界面上的“通知标题”字段|
-|content|string|对应 Portal 推送通知界面上的“通知内容”字段|
-|badge|string|对应 Portal 推送通知界面上的可选设置里面的“badge”字段 (ios only)|
-|ring|string|推送通知界面上的可选设置里面的“sound”字段 (ios only)|
-|extras|dictionary|对应 Portal 推送消息界面上的“可选设置”里的附加字段|
-|iOS|dictionary|对应原生返回的通知内容，如需要更多字段请查看该字段内容|
-|android|dictionary|对应原生返回的通知内容，如需要更多字段请查看该字段内容|
-|notificationEventType|string|分为notificationArrived和notificationOpened两种|
+|messageID|string|An ID that uniquely identifies the notification message|
+|title|string|Corresponds to the "Notification Title" field on the Portal push notification interface|
+|content|string|Corresponds to the "Notification Content" field on the Portal push notification interface|
+|badge|string|Corresponds to the "badge" field in the optional settings on the Portal push notification interface (ios only)|
+|ring|string|The "sound" field in the optional settings on the push notification interface (ios only)|
+|extras|dictionary|Corresponds to the additional fields in the "Optional Settings" on the Portal push message interface.|
+|iOS|dictionary|Corresponds to the notification content returned by the native. If you need more fields, please check the content of this field.|
+|android|dictionary|Corresponds to the notification content returned by the native. If you need more fields, please check the content of this field.|
+|notificationEventType|string| `notificationArrived` or `notificationOpened`|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.addNotificationListener(result=>{
 				let notificationEventType = result.notificationEventType
@@ -144,22 +144,22 @@ mtpushModule.addNotificationListener(result=>{
 			})
 ```
 
-## 自定义消息事件回调
+## Listen to custom message event callbacks
 
 ###  API - addCustomMessageListener(CALLBACK)
-监听 Portal 发送的自定义消息
+Listen to custom message event callbacks
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|messageID|string|唯一标识通知消息的 ID|
-|content|string|对应 Portal 推送通知界面上的“通知内容”字段|
-|extras|dictionary|对应 Portal 推送消息界面上的“可选设置”里的附加字段|
+|messageID|string|An ID that uniquely identifies the notification message|
+|content|string|Corresponds to the "Notification Content" field on the Portal push notification interface|
+|extras|dictionary|Corresponds to the additional fields in the "Optional Settings" on the Portal push message interface.|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.addCustomMessageListener(result=>{
 				let messageID = result.messageID
@@ -168,24 +168,24 @@ mtpushModule.addCustomMessageListener(result=>{
 			})
 ```
 
-## 标签别名事件回调
+## Tag alias event callback
 
 ### API - addTagAliasListener(CALLBACK)
 
-#### 参数说明
+#### Parameter Description
 
 - CALLBACK
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|code|number|请求状态码 0 - 成功|
-|sequence|number|请求时传入的序列号,会在回调时原样返回|
-|tags|StringArray|执行tag数组操作时返回|
-|tag|string|执行查询指定tag(queryTag)操作时会返回|
-|tagEnable|boolean|执行查询指定tag(queryTag)操作时会返回是否可用|
-|alias|string|对alias进行操作时返回|
+|code|number|status code 0 - Success|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
+|tags|StringArray|The result returned by tagOperation|
+|tag|string|Will be returned when performing queryTag operation|
+|tagEnable|boolean|Will be returned when performing queryTag operation|
+|alias|string|The result returned by aliasOperation|
 
-#### 示例
+#### Example
 
 ```javascript
 mtpushModule.addTagAliasListener(result=>{
@@ -199,20 +199,20 @@ mtpushModule.addTagAliasListener(result=>{
 ```
 
 
-## 新增标签
+## AddTag
 
 ### API - addTags(Object)
-这个接口是增加逻辑，而不是覆盖逻辑
+This interface is for adding operations, not overwriting operations
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
-|tags|StringArray|string类型的数组|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
+|tags|StringArray|array of string type|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.addTags({
 					'tags':['beauty','rich'],
@@ -220,20 +220,20 @@ mtpushModule.addTags({
 				})
 ```
 
-## 覆盖标签
+## updateTags
 
 ### API - updateTags(Object)
-需要理解的是，这个接口是覆盖逻辑，而不是增量逻辑。即新的调用会覆盖之前的设置
+What needs to be understood is that this interface is overwriting operation, not incremental operation. That is, new calls will overwrite previous settings.
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
-|tags|StringArray|string类型的数组|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
+|tags|StringArray|array of string type|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.updateTags({
 					'tags':['beauty','rich'],
@@ -242,20 +242,20 @@ mtpushModule.updateTags({
 ```
 
 
-## 删除指定标签
+## deleteTags
 
 ### API - deleteTags(Object)
-删除指定标签
+Delete specified label
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
-|tags|StringArray|string类型的数组|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
+|tags|StringArray|array of string type|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.deleteTags({
 					'tags':['beauty','rich'],
@@ -264,19 +264,19 @@ mtpushModule.deleteTags({
 ```
 
 
-## 清除所有标签
+## cleanTags
 
 ### API - cleanTags(Object)
-清除所有标签
+clean all tags
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.cleanTags({
 					'sequence': 1
@@ -284,21 +284,21 @@ mtpushModule.cleanTags({
 ```
 
 
-## 查询指定 tag 与当前用户绑定的状态
+## Query the status of binding the specified tag to the current user
 
 ### API - queryTag(Object)
-查询指定 tag 与当前用户绑定的状态
+Query the status of binding the specified tag to the current user
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
-|tag|string|需要查询的标签|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
+|tag|string|Tags to be queried|
 
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.queryTag({
 					'tag':'beauty',
@@ -307,20 +307,20 @@ mtpushModule.queryTag({
 ```
 
 
-## 查询所有标签
+## getAllTags
 
 ### API - getAllTags(Object)
-查询所有标签
+Query all tags
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
 
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.getAllTags({
 					'sequence': 1
@@ -328,20 +328,20 @@ mtpushModule.getAllTags({
 ```
 
 
-## 设置别名
+## setAlias
 
 ### API - setAlias(Object)
-每次调用设置有效的别名，覆盖之前的设置
+Sets a valid alias for each call, overwriting previous settings.
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
-|alias|string|有效的别名组成：字母（区分大小写）、数字、下划线、汉字、特殊字符@!#$&\*+=.\||
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
+|alias|string|Valid aliases consist of: letters (case sensitive), numbers, underscores, Chinese characters, special characters @!#$&\*+=.\||
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.setAlias({
                 'alias' : 'coder',
@@ -349,20 +349,19 @@ mtpushModule.setAlias({
 				})
 ```
 
-## 删除别名
+## deleteAlias
 
 ### API - deleteAlias(Object)
-删除别名
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
 
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.deleteAlias({
 					'sequence': 1
@@ -370,20 +369,19 @@ mtpushModule.deleteAlias({
 ```
 
 
-## 查询别名
+## queryAlias
 
 ### API - queryAlias(Object)
-删除别名
 
-#### 参数说明
+#### Parameter Description
 - Object
 
-|参数名称|参数类型|参数说明|
+|Parameter Name|Parameter Type|Parameter Description|
 |:-----:|:----:|:-----:|
-|sequence|number|请求时传入的序列号，会在回调时原样返回|
+|sequence|number|The sequence number passed in during the request will be returned unchanged during the callback.|
 
 
-#### 示例
+#### Example
 ```javascript
 mtpushModule.queryAlias({
 					'sequence': 1
@@ -391,26 +389,25 @@ mtpushModule.queryAlias({
 ```
 
 
-## 设置 Badge
+## Set Badge
 
 ### API - setBadge(number)
 
-本接口用于配合 JPush 提供的服务器端角标功能.
-iOS:该功能解决的问题是, 服务器端推送 APNs 时, 并不知道客户端原来已经存在的角标是多少, 指定一个固定的数字不太合理.
+This interface is used to cooperate with the server-side badge function provided by Engagaelab.
+iOS:The problem this function solves is that when the server pushes APNs, it does not know what the client's original index is, and it is not reasonable to specify a fixed number.
 
- - 通过本 API 把当前客户端(当前这个用户的) 的实际 badge 设置到服务器端保存起来;
- - 调用服务器端 API 发 APNs 时(通常这个调用是批量针对大量用户),
-   使用 "+1" 的语义, 来表达需要基于目标用户实际的 badge 值(保存的) +1 来下发通知时带上新的 badge 值;
+ - Use this API to set the actual badge of the current client (the current user) to the server and save it;
+ - When calling the server-side API to send APNs (usually this call is for a large number of users in batches),
+   Use the semantics of "+1" to express the need to bring a new badge value when sending notifications based on the target user's actual badge value (saved) +1;
 
-Android:仅支持华为
-
-#### 示例
+Android:Only supports Huawei
+#### Example
 ```javascript
 mtpushModule.setBadge(10)
 ```
 
 
-## 错误码
+## error code
 
-请参考[EngageLab官网](https://www.engagelab.com/)
+refer to [EngageLab](https://www.engagelab.com/)
 
