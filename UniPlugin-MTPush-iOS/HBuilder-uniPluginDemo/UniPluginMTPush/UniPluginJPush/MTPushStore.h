@@ -24,11 +24,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTPushStore : NSObject <MTPushRegisterDelegate>
+@interface MTPushStore : NSObject <MTPushRegisterDelegate,MTPushInAppMessageDelegate>
 
 @property (nonatomic, copy) UniModuleKeepAliveCallback connectEventCallback; // 连接状态
 @property (nonatomic, copy) UniModuleKeepAliveCallback pushNotiCallback; // apns推送消息
 @property (nonatomic, copy) UniModuleKeepAliveCallback receiveCustomNotiCallback; //自定义消息
+@property (nonatomic, copy) UniModuleKeepAliveCallback inAppMessageCallback; // 应用内消息
 
 @property (nonatomic, copy) UniModuleKeepAliveCallback localNotiCallback; // 本地通知
 

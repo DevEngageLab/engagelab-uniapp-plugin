@@ -61,6 +61,14 @@
 			}
 		},
 		
+		onShow() {
+			mtpushModule.pageEnterTo("indexView")
+		},
+		
+		onHide() {
+			mtpushModule.pageLeave("indexView")
+		},
+		
 		onLoad() {
 			console.log('开始监听连接状态')
 			uni.$on('connectStatusChange',(connectStatus)=>{  

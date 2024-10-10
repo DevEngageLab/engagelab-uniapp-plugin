@@ -60,6 +60,14 @@
 				})
 			});
 			
+			mtpushModule.addInMessageListener(result=>{
+				uni.showToast({
+					icon: 'none',
+					title: JSON.stringify(result),
+					duration: 3000
+				})
+			});
+			
 			if(uni.getSystemInfoSync().platform == "ios"){
 				mtpushModule.addLocalNotificationListener(result=>{
 					let messageID = result.messageID

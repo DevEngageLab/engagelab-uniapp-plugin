@@ -159,6 +159,7 @@ UNI_EXPORT_METHOD(@selector(setSiteName:))
 
 UNI_EXPORT_METHOD(@selector(addNotificationListener:))
 UNI_EXPORT_METHOD(@selector(addCustomMessageListener:))
+UNI_EXPORT_METHOD(@selector(addInMessageListener:))
 
 #pragma - 通知回调
 // 远程通知事件 notificationEventType：分为notificationArrived和notificationOpened两种
@@ -191,6 +192,23 @@ UNI_EXPORT_METHOD(@selector(addCustomMessageListener:))
     [MTPushStore shared].receiveCustomNotiCallback = callback;
 }
 
+// 监听inapp消息
+- (void)addInMessageListener:(UniModuleKeepAliveCallback)callback {
+    [self logger:@"addInMessageListener" log:nil];
+    [MTPushStore shared].inAppMessageCallback = callback;
+}
+
+UNI_EXPORT_METHOD(@selector(pageEnterTo:))
+UNI_EXPORT_METHOD(@selector(pageLeave:))
+
+// 应用内消息需要配置以下两个接口
+- (void)pageEnterTo:(NSString *)pageName{
+    [MTPushService pageEnterTo:pageName];
+}
+
+- (void)pageLeave:(NSString *)pageName{
+    [MTPushService pageLeave:pageName];
+}
 
 UNI_EXPORT_METHOD(@selector(addTagAliasListener:))
 UNI_EXPORT_METHOD(@selector(addTags:))
