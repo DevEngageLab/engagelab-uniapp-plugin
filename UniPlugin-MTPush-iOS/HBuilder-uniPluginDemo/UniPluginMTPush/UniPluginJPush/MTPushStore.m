@@ -33,6 +33,8 @@
     [self addCustomMessageObserver];
     // 监听自定义消息
     [self addInappMessageObserve];
+    // 监听增强提醒消息
+    [self addNotiInappMessageObserver];
 }
 
 #pragma mark - 初始化
@@ -139,10 +141,6 @@
                         object:nil];
 }
 
-#pragma mark - 应用内消息
-- (void)addInappMessageObserve {
-    [MTPushService setInAppMessageDelegate:self];
-}
 
 // 收到透传消息
 - (void)networkDidReceiveMessage:(NSNotification *)notification {
@@ -157,6 +155,16 @@
     }
 }
 
+#pragma mark - 应用内消息
+- (void)addInappMessageObserve {
+    [MTPushService setInAppMessageDelegate:self];
+}
+
+#pragma mark - 增强提醒消息
+- (void)addNotiInappMessageObserver {
+    [MTPushService setNotiInMessageDelegate:self];
+}
+
 #pragma mark - MTPUSHInAppMessageDelegate
 - (void)mtPushInAppMessageDidShow:(MTPushInAppMessage *)inAppMessage {
     if ([MTPushStore shared].inAppMessageCallback) {
@@ -169,6 +177,21 @@
     if ([MTPushStore shared].inAppMessageCallback) {
         NSDictionary *result = [self convertInappMsg:inAppMessage isShow:NO];
         [MTPushStore shared].inAppMessageCallback(result, YES);
+    }
+}
+
+#pragma mark - MTPushNotiInMessageDelegate
+- (void)mtPushNotiInMessageDidShowWithContent:(NSDictionary *)content {
+    if ([MTPushStore shared].notiInAppMessageCallback) {
+        NSDictionary *result = [self convertNotiInappMessage:content type:NOTIINAPP_SHOW];
+        [MTPushStore shared].notiInAppMessageCallback(result, YES);
+    }
+}
+
+- (void)mtPushNotiInMessageDidClickWithContent:(NSDictionary *)content {
+    if ([MTPushStore shared].notiInAppMessageCallback) {
+        NSDictionary *result = [self convertNotiInappMessage:content type:NOTIINAPP_CLICK];
+        [MTPushStore shared].notiInAppMessageCallback(result, YES);
     }
 }
 
@@ -231,7 +254,7 @@
 - (NSDictionary *)convertApnsMessage:(NSDictionary *)userInfo type:(NSString *)type{
     NSMutableDictionary *extras = [NSMutableDictionary dictionary];
     for (NSString *key in userInfo.allKeys) {
-        if ([key isEqualToString:@"_j_business"] || [key isEqualToString:@"_j_msgid"] || [key isEqualToString:@"_j_uid"] || [key isEqualToString:@"aps"] || [key isEqualToString:@"_j_geofence"] || [key isEqualToString:@"_j_extras"] || [key isEqualToString:@"_j_ad_content"] || [key isEqualToString:@"_j_data_"] || [key isEqualToString:@"_j_private_cloud"]) {
+        if ([key isEqualToString:@"_j_business"] || [key isEqualToString:@"_j_msgid"] || [key isEqualToString:@"_j_uid"] || [key isEqualToString:@"aps"] || [key isEqualToString:@"_j_geofence"] || [key isEqualToString:@"_j_extras"] || [key isEqualToString:@"_j_ad_content"] || [key isEqualToString:@"_j_data_"] || [key isEqualToString:@"_j_private_cloud"] || [key isEqualToString:@"_j_engagel_cloud"]) {
             continue;
         }
         [extras setValue:userInfo[key] forKey:key];
@@ -312,6 +335,53 @@
         @"inAppClickAction": inAppMessage.clickAction?:@"",  // 跳转地址
         @"inAppExtras": inAppMessage.extras?:@"", // 附加字段
     };
+    return result;
+}
+
+- (NSDictionary *)convertNotiInappMessage:(NSDictionary *)userInfo type:(NSString *)type{
+    NSMutableDictionary *extras = [NSMutableDictionary dictionary];
+    for (NSString *key in userInfo.allKeys) {
+        if ([key isEqualToString:@"_j_business"] || [key isEqualToString:@"_j_msgid"] || [key isEqualToString:@"_j_uid"] || [key isEqualToString:@"aps"] || [key isEqualToString:@"_j_geofence"] || [key isEqualToString:@"_j_extras"] || [key isEqualToString:@"_j_ad_content"] || [key isEqualToString:@"_j_data_"] || [key isEqualToString:@"_j_private_cloud"]
+            || [key isEqualToString:@"_j_engagel_cloud"]) {
+            continue;
+        }
+        [extras setValue:userInfo[key] forKey:key];
+    }
+
+    id alertData =  userInfo[@"aps"][@"alert"];
+    NSString *badge = userInfo[@"aps"][@"badge"]?[userInfo[@"aps"][@"badge"] stringValue]:@"";
+    NSString *sound = userInfo[@"aps"][@"sound"]?userInfo[@"aps"][@"sound"]:@"";
+    NSString *title = @"";
+    NSString *content = @"";
+    if([alertData isKindOfClass:[NSString class]]){
+        content = alertData;
+    }else if([alertData isKindOfClass:[NSDictionary class]]){
+        title = alertData[@"title"]?alertData[@"title"]:@"";
+        content = alertData[@"body"]?alertData[@"body"]:@"";
+    }
+    
+    if (userInfo[@"_j_extras"] && [userInfo[@"_j_extras"] isKindOfClass:[NSDictionary class]]) {
+        badge = userInfo[@"_j_extras"][@"badge"];
+        sound = userInfo[@"_j_extras"][@"sound"];
+        if ([userInfo[@"_j_extras"][@"alert"] isKindOfClass:[NSDictionary class]]) {
+            title = userInfo[@"_j_extras"][@"alert"][@"title"];
+            content = userInfo[@"_j_extras"][@"alert"][@"body"];
+        }
+    }
+
+    NSMutableDictionary *temResult = [NSMutableDictionary dictionaryWithDictionary:@{
+        @"messageID":userInfo[@"_j_msgid"]?:@"",
+        @"title":title?:@"",
+        @"content":content?:@"",
+        @"badge":badge?:@"",
+        @"ring":sound?:@"",
+        @"extras":[extras copy]?:@{},
+        @"iOS":userInfo?:@{},
+        NOTIINAPP_EVENTTYPE:type,
+    }];
+
+    NSDictionary *result = [temResult copy];
+    
     return result;
 }
 

@@ -21,15 +21,21 @@
 #define NOTIFICATION_ARRIVED    @"notificationArrived"
 #define NOTIFICATION_OPENED     @"notificationOpened"
 
+#define NOTIINAPP_EVENTTYPE     @"notiInAppEventType"
+#define NOTIINAPP_SHOW          @"notInappShow"
+#define NOTIINAPP_CLICK         @"notInappClick"
+
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTPushStore : NSObject <MTPushRegisterDelegate,MTPushInAppMessageDelegate>
+@interface MTPushStore : NSObject <MTPushRegisterDelegate,MTPushInAppMessageDelegate,MTPushNotiInMessageDelegate>
 
 @property (nonatomic, copy) UniModuleKeepAliveCallback connectEventCallback; // 连接状态
 @property (nonatomic, copy) UniModuleKeepAliveCallback pushNotiCallback; // apns推送消息
 @property (nonatomic, copy) UniModuleKeepAliveCallback receiveCustomNotiCallback; //自定义消息
 @property (nonatomic, copy) UniModuleKeepAliveCallback inAppMessageCallback; // 应用内消息
+@property (nonatomic, copy) UniModuleKeepAliveCallback notiInAppMessageCallback; // 增强提醒消息
 
 @property (nonatomic, copy) UniModuleKeepAliveCallback localNotiCallback; // 本地通知
 
