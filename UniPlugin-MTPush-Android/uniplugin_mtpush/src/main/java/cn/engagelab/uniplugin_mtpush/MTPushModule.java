@@ -269,6 +269,15 @@ public class MTPushModule extends UniDestroyableModule {
         }
     }
 
+    @UniJSMethod(uiThread = true)
+    public void addInMessageListener(JSCallback callback) {
+        updatePluginStatu();
+        if (callback != null) {
+            MTLogger.w("addInMessageListener");
+            MTPushHelper.eventCallback.put(MTConstants.INAPP_MESSAGE_EVENT, callback);
+        }
+    }
+
 
     @UniJSMethod(uiThread = true)
     public void setBadge(int number) {

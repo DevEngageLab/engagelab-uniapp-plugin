@@ -30,7 +30,7 @@ android {
         // fa88db66d2a2f590d1222374  com.engagelab.app 正式环境
         manifestPlaceholders = [
                 // Engagelab appKey，需要与Engagelab控制台上的一样，与packageName是一对一关系
-                ENGAGELAB_PRIVATES_APPKEY : "30dbb9be9384faa197ee6148",
+                ENGAGELAB_PRIVATES_APPKEY : "0224b0191b148d00b50a5a42",
                 // Engagelab appChannel，用于渠道统计
                 ENGAGELAB_PRIVATES_CHANNEL: "developer",
                 // Engagelab process，Engagelabsdk工作所在的进程，注意:开头

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.engagelab.privates.push.api.InAppMessage;
 import com.taobao.weex.bridge.JSCallback;
 
 import java.util.HashMap;
@@ -69,6 +70,17 @@ public class MTPushHelper {
         String extras = getJson(customMessage.getExtras());
         convertExtras(extras, jsonObject);
         jsonObject.put(MTConstants.ANDROID, JSONObject.parseObject(JSONObject.toJSONString(customMessage)));
+        return jsonObject;
+    }
+
+    public static JSONObject convertInappMessage(String exentType, InAppMessage inAppMessage) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(MTConstants.MESSAGE_ID, inAppMessage.getMessageId());
+        jsonObject.put(MTConstants.CONTENT, inAppMessage.getContent());
+        jsonObject.put(MTConstants.CLICK, inAppMessage.getClick());
+        jsonObject.put(MTConstants.TARGET, inAppMessage.getTarget());
+        jsonObject.put(MTConstants.EXTRAS, inAppMessage.getExtras());
+        jsonObject.put(MTConstants.INAPP_MESSAGE_EVENT_TYPE, exentType);
         return jsonObject;
     }
 

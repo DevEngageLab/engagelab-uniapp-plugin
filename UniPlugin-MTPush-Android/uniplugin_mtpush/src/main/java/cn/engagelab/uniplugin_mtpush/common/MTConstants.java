@@ -33,6 +33,8 @@ public class MTConstants {
     public static final String NOTIFICATION_OPENED = "notificationOpened";
     public static final String NOTIFICATION_DISMISSED = "notificationDismissed";
     //应用内消息事件类型
+    public static final String CLICK = "click";
+    public static final String TARGET = "target";
     public static final String INAPP_MESSAGE_ARRIVED = "show";
     public static final String INAPP_MESSAGE_OPENED = "click";
     public static final String INAPP_MESSAGE_DISMISSED = "disappear";

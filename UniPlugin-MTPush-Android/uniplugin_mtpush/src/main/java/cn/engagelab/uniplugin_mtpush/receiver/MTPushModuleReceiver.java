@@ -8,6 +8,7 @@ import com.engagelab.privates.common.component.MTCommonReceiver;
 import com.engagelab.privates.core.api.WakeMessage;
 import com.engagelab.privates.push.api.AliasMessage;
 import com.engagelab.privates.push.api.CustomMessage;
+import com.engagelab.privates.push.api.InAppMessage;
 import com.engagelab.privates.push.api.MobileNumberMessage;
 import com.engagelab.privates.push.api.NotificationMessage;
 import com.engagelab.privates.push.api.PlatformTokenMessage;
@@ -68,6 +69,20 @@ public class MTPushModuleReceiver extends MTCommonReceiver {
         MTLogger.d("onCustomMessage:" + customMessage.toString());
         JSONObject jsonObject = MTPushHelper.convertCustomMessage(customMessage);
         MTPushHelper.sendEvent(MTConstants.CUSTOM_MESSAGE_EVENT, jsonObject);
+    }
+
+    @Override
+    public void onInAppMessageShow(Context context, InAppMessage inAppMessage) {
+        MTLogger.d("onInAppMessageShow:" + inAppMessage.toString());
+        JSONObject jsonObject = MTPushHelper.convertInappMessage(MTConstants.INAPP_MESSAGE_ARRIVED,inAppMessage);
+        MTPushHelper.sendEvent(MTConstants.INAPP_MESSAGE_EVENT, jsonObject);
+    }
+
+    @Override
+    public void onInAppMessageClick(Context context, InAppMessage inAppMessage) {
+        MTLogger.d("onInAppMessageClick:" + inAppMessage.toString());
+        JSONObject jsonObject = MTPushHelper.convertInappMessage(MTConstants.INAPP_MESSAGE_OPENED,inAppMessage);
+        MTPushHelper.sendEvent(MTConstants.INAPP_MESSAGE_EVENT, jsonObject);
     }
 
     // 厂商token消息回调

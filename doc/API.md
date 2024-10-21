@@ -198,6 +198,38 @@ mtpushModule.addTagAliasListener(result=>{
 				})
 ```
 
+## In App Meassage Listener
+
+### API - addInMessageListener(CALLBACK)
+
+#### Parameter Description
+
+- CALLBACK
+
+|Parameter Name|Parameter Type|Parameter Description|
+|:-----:|:----:|:-----:|
+|messageID|string|An ID that uniquely identifies the inapp message|
+|title|string|Corresponds to the "Title" field on the Portal inapp message interface|
+|content|string|Corresponds to the "Content" field on the Portal inapp message interface|
+|target|string|target show page|
+|click|string|the link to jump when click the inapp message|
+|extras|dictionary|Corresponds to the additional fields in the "Optional Settings" on the inapp message message interface.|
+|eventType|string|"show" or "click"|
+
+#### 示例
+
+```javascript
+mtpushModule.addInMessageListener(result=>{
+					let messageID = result.messageID
+					let title = result.title
+					let content = result.content
+					let target = result.target
+					let click = result.click
+					let extras = result.extras
+					let eventType = result.eventType
+				})
+```
+
 
 ## AddTag
 

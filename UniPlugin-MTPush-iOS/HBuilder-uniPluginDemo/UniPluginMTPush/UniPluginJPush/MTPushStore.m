@@ -331,9 +331,9 @@
         @"messageID": inAppMessage.mesageId?:@"", // 消息id
         @"title": inAppMessage.title?:@"",       // 标题
         @"content": inAppMessage.content?:@"",   // 内容
-        @"inAppShowTarget": target?:@"",     // 目标页面
-        @"inAppClickAction": inAppMessage.clickAction?:@"",  // 跳转地址
-        @"inAppExtras": inAppMessage.extras?:@"", // 附加字段
+        @"target": target?:@"",     // 目标页面
+        @"click": inAppMessage.clickAction?:@"",  // 跳转地址
+        @"extras": extras?:@"", // 附加字段
     };
     return result;
 }
