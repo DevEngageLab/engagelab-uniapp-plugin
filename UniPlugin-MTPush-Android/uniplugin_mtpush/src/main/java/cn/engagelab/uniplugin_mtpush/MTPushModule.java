@@ -12,11 +12,13 @@ import android.text.TextUtils;
 import android.util.Log;
 
 //import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.engagelab.privates.core.api.MTCorePrivatesApi;
 import com.engagelab.privates.push.api.MTPushPrivatesApi;
 import com.engagelab.privates.common.global.MTGlobal;
+import com.engagelab.privates.push.api.NotificationMessage;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.taobao.weex.bridge.JSCallback;
@@ -24,6 +26,7 @@ import com.taobao.weex.bridge.JSCallback;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import cn.engagelab.uniplugin_mtpush.common.MTConstants;
@@ -451,6 +454,61 @@ public class MTPushModule extends UniDestroyableModule {
         MTPushPrivatesApi.getAlias(mWXSDKInstance.getContext(), sequence);
     }
 
+
+    /**
+     * 展示本地通知
+     */
+    @UniJSMethod(uiThread = true)
+    public void addLocalNotification(JSONObject readableMap) {
+
+        try {
+            int notiId = readableMap.getIntValue("messageID");
+            String title = readableMap.getString("title");
+            String content = readableMap.getString("content");
+            String category = readableMap.getString("category");
+            int priority = readableMap.getIntValue("priority");
+            JSONObject extras = readableMap.getJSONObject("extras");
+            Context context = mWXSDKInstance.getContext();
+            Bundle bundle = jsonObjectToBundle(extras);
+            // 构建一个基础的通知，其中messageId和content是必须，否则通知无法展示
+            NotificationMessage notificationMessage = new NotificationMessage()
+                    .setNotificationId(notiId)
+                    .setTitle(title)
+                    .setContent(content)
+                    .setCategory(category)
+                    .setExtras(bundle)
+                    .setPriority(priority);
+            // 展示通知
+            MTPushPrivatesApi.showNotification(context,notificationMessage);
+        }catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    Bundle jsonObjectToBundle(JSONObject jsonObject) {
+        Bundle bundle = new Bundle();
+        if (jsonObject != null) {
+            Set<String> keySet = jsonObject.keySet();
+            Iterator<String> iter = keySet.iterator();
+            while (iter.hasNext()) {
+                String key = iter.next();
+                Object value = jsonObject.get(key);
+                if (value instanceof String) {
+                    bundle.putString(key, (String) value);
+                } else if (value instanceof Integer) {
+                    bundle.putInt(key, (Integer) value);
+                } else if (value instanceof Boolean) {
+                    bundle.putBoolean(key, (Boolean) value);
+                } else if (value instanceof Long) {
+                    bundle.putLong(key, (Long) value);
+                } else if (value instanceof Double) {
+                    bundle.putDouble(key, (Double) value);
+                }
+            }
+        }
+        return bundle;
+    }
 
 
     @Override

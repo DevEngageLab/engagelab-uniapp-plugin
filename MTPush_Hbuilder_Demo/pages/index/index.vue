@@ -42,6 +42,13 @@
 		<label type="primary" @click="setAlias" style="margin-right: 30rpx;">设置 Alias</label>
 		<label type="primary" @click="deleteAlias" style="margin-right: 30rpx;">删除Alias </label>
 		<label type="primary" @click="queryAlias" style="margin-right: 30rpx;">查询Alias </label>
+		</br>
+		</br>
+		<label>---------------本地通知------------------</label>
+		</br>
+		</br>
+		<button size="mini" type="primary" @click="addLocalNotification" style="left: 10pt;">发送本地通知</button>
+		
 		
     </div>
 </template>
@@ -180,6 +187,20 @@
 			queryAlias() {
 				mtpushModule.queryAlias({
 					'sequence': seq++
+				})
+			},
+			
+			addLocalNotification() {
+				mtpushModule.addLocalNotification({
+					"messageID": 123,
+					"title": "hello title",
+					"content": "hello content",
+					"extras": {
+						"extras1": "extras1",
+						"extras2": "extras2"
+					},
+					"category": "androidcategory", //安卓独有
+					"priority": 1, //安卓独有
 				})
 			},
 			

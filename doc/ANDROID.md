@@ -84,6 +84,23 @@ mtpushModule.setSilenceTime({
 				});    
 ```
 
+## Local notification API
+### API - addLocalNotification()
+This API can send a local notification.
+#### example
+```javascript
+mtpushModule.addLocalNotification({
+					"messageID": 123,
+					"title": "hello title",
+					"content": "hello content",
+					"extras": {
+						"extras1": "extras1",
+						"extras2": "extras2"
+					},
+					"category": "androidcategory", //only android
+					"priority": 1, //only android
+				})  
+```
 
 ## Clear notification API
 
