@@ -27,6 +27,31 @@ After calling this API, all functionality is fully functional again.
 mtpushModule.resumePush();
 ```
 
+## config ChannelAndSound API
+
+### API - setChannelAndSound(Object)
+Dynamically configured channels, channel IDs, and sounds。 have higher priority than those defined in AndroidManifest.
+Note：channel(required) 、channel id (required)， sound (optional)
+
+#### 参数说明
+- Object
+
+|Parameter Name|Parameter Type|Description|
+|:-----:|:----:|:-----:|
+|channel|string| channel|
+|channel_id|string| channel id|
+|sound|string|sound name|
+
+#### 示例
+```javascript
+mtpushModule.setChannelAndSound({
+					'channel':'channeltags',
+                    'channel_id': '123121',
+                    'sound': ""
+				});    
+```
+
+
 ## Set allowed push time API
 
 ### API - setPushTime(Object)

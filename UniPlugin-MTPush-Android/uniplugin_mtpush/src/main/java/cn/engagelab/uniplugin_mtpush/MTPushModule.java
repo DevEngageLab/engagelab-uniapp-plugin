@@ -3,10 +3,13 @@ package cn.engagelab.uniplugin_mtpush;
 import static android.content.ContentValues.TAG;
 
 import android.app.Application;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -156,6 +159,35 @@ public class MTPushModule extends UniDestroyableModule {
     public void resumePush() {
         updatePluginStatu();
         MTPushPrivatesApi.turnOnPush(mWXSDKInstance.getContext());
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void setChannelAndSound(JSONObject readableMap) {
+        updatePluginStatu();
+        if (readableMap == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        String channel = readableMap.getString(MTConstants.CHANNEL);
+        String channelId = readableMap.getString(MTConstants.CHANNEL_ID);
+        String sound = readableMap.getString(MTConstants.SOUND);
+        try {
+            NotificationManager manager= (NotificationManager) uniContext.getSystemService("notification");
+            if(Build.VERSION.SDK_INT<26){
+                return;
+            }
+            if(TextUtils.isEmpty(channel)||TextUtils.isEmpty(channelId)){
+                MTLogger.w(MTConstants.PARAMS_ILLEGAL_CHANNEL);
+                return;
+            }
+            NotificationChannel channel1=new NotificationChannel(channelId,channel, NotificationManager.IMPORTANCE_HIGH);
+            if(!TextUtils.isEmpty(sound)){
+                channel1.setSound(Uri.parse("android.resource://"+uniContext.getPackageName()+"/raw/"+sound),null);
+            }
+            manager.createNotificationChannel(channel1);
+        }catch (Throwable throwable){
+
+        }
     }
 
     @UniJSMethod(uiThread = true)
