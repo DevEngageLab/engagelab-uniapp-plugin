@@ -1,7 +1,7 @@
 {
     "name": "EL-MTPush",
     "id": "EL-MTPush",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "EngageLab Hbuilder plugin",
     "_dp_type":"nativeplugin",
     "_dp_nativeplugin":{
