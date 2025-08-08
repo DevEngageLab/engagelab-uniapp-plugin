@@ -441,6 +441,27 @@ Android:仅支持华为
 mtpushModule.setBadge(10)
 ```
 
+## 设置设备更换时是否重置RegistrationID
+
+### API - setEnableResetOnDeviceChange(Boolean)
+
+开启或者关闭设备更换时重置RegistrationID的功能。若开启时，当检测到设备发生变化时（只有当设备型号发生变化时），会自动清除注册信息，重新注册。
+
+#### 参数说明
+- Boolean: true - 启用，false - 禁用，默认为 false
+
+#### 调用说明
+请在初始化接口前调用。默认为关闭。
+
+#### 示例
+```javascript
+// 启用设备迁移功能
+mtpushModule.setEnableResetOnDeviceChange(true);
+
+// 禁用设备迁移功能（默认状态）
+mtpushModule.setEnableResetOnDeviceChange(false);
+```
+
 
 ## 错误码
 

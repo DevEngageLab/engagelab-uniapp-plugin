@@ -18,6 +18,10 @@
 		<button size="mini" type="primary" @click="setLoggerEnable" style="left: 10pt;">打开日志</button>
 		<button size="mini" type="primary" @click="setLoggerUnEnable" style="left: 20pt;">关闭日志</button>
 		<button size="mini" type="primary" @click="getRegistrationID" style="left: 30pt;">获取注册id</button>
+		</br>
+		</br>
+		<button size="mini" type="primary" @click="setEnableResetOnDeviceChange" style="left: 10pt;">启用设备迁移</button>
+		<button size="mini" type="primary" @click="setDisableResetOnDeviceChange" style="left: 20pt;">禁用设备迁移</button>
 		
 		</br>
 		</br>
@@ -124,6 +128,16 @@
 					console.log(registerID)
 					this.registrationID = registerID
 				})	
+			},
+			
+			setEnableResetOnDeviceChange() {
+				mtpushModule.setEnableResetOnDeviceChange(true)
+				this.showToast({message: '已启用设备迁移功能'})
+			},
+			
+			setDisableResetOnDeviceChange() {
+				mtpushModule.setEnableResetOnDeviceChange(false)
+				this.showToast({message: '已禁用设备迁移功能'})
 			},
 			
 			addTags() {

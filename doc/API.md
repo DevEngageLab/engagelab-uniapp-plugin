@@ -438,6 +438,27 @@ Android:Only supports Huawei
 mtpushModule.setBadge(10)
 ```
 
+## Set Enable Reset On Device Change
+
+### API - setEnableResetOnDeviceChange(Boolean)
+
+Enable or disable the function of resetting RegistrationID when device changes. If enabled, when a device change is detected (only when the device model changes), the registration information will be automatically cleared and re-registered.
+
+#### Parameter Description
+- Boolean: true - enable, false - disable, default is false
+
+#### Call Instructions
+Please call before the initialization interface. Default is disabled.
+
+#### Example
+```javascript
+// Enable device migration function
+mtpushModule.setEnableResetOnDeviceChange(true);
+
+// Disable device migration function (default state)
+mtpushModule.setEnableResetOnDeviceChange(false);
+```
+
 
 ## error code
 

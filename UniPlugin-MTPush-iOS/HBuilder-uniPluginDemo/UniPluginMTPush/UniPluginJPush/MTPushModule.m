@@ -46,6 +46,7 @@ UNI_EXPORT_METHOD(@selector(setMobileNumber:))
 UNI_EXPORT_METHOD(@selector(setLoggerEnable:))
 UNI_EXPORT_METHOD(@selector(getRegistrationID:))
 UNI_EXPORT_METHOD(@selector(setTcpSSL:))
+UNI_EXPORT_METHOD(@selector(setEnableResetOnDeviceChange:))
 
 #pragma -
 
@@ -106,6 +107,12 @@ UNI_EXPORT_METHOD(@selector(setTcpSSL:))
 - (void)setTcpSSL:(BOOL)isSSL {
     [self logger:@"setTcpSSL" log:(isSSL?@"true":@"false")];
     [MTPushService setTcpSSL:isSSL];
+}
+
+// 设置设备更换时是否重置RegistrationID
+- (void)setEnableResetOnDeviceChange:(BOOL)enable {
+    [self logger:@"setEnableResetOnDeviceChange" log:(enable?@"true":@"false")];
+    [MTPushService enableResetOnDeviceChange:enable];
 }
 
 

@@ -1,3 +1,7 @@
+V1.1.6
+- 1. iOS 更新到5.1.0版本，Android 更新到5.1.0版本
+- 2. 新增API：setEnableResetOnDeviceChange - 设置设备更换时是否重置RegistrationID
+
 V1.1.5
 - 1. 安卓新增API：setChannelAndSound
 - 2. ios 更新到5.0.0版本，安卓更新到5.0.0版本。

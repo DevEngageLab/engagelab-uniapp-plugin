@@ -85,6 +85,13 @@ public class MTPushModule extends UniDestroyableModule {
         MTCorePrivatesApi.setTcpSSl(enable);
     }
 
+    @UniJSMethod(uiThread = true)
+    public void setEnableResetOnDeviceChange(boolean enable) {
+        MTLogger.w("setEnableResetOnDeviceChange-----");
+        updatePluginStatu();
+        MTCorePrivatesApi.setEnableResetOnDeviceChange(mWXSDKInstance.getContext(), enable);
+    }
+
 
     @UniJSMethod(uiThread = true)
     public void openSettingsForNotification(JSCallback callback) {
