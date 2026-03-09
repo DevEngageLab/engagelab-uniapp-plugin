@@ -462,6 +462,52 @@ mtpushModule.setEnableResetOnDeviceChange(true);
 mtpushModule.setEnableResetOnDeviceChange(false);
 ```
 
+## 设置是否允许使用 UDP
+
+### API - setEnableUdp(Boolean)
+
+设置推送连接是否允许使用 UDP。传 `true` 允许使用 UDP，传 `false` 不允许使用 UDP。
+
+#### 参数说明
+- Boolean: true - 允许使用 UDP，false - 不允许使用 UDP
+
+#### 调用说明
+如需修改默认行为，请在初始化接口前调用。
+
+#### 示例
+```javascript
+// 允许使用 UDP
+mtpushModule.setEnableUdp(true);
+
+// 不允许使用 UDP
+mtpushModule.setEnableUdp(false);
+```
+
+## 设置数据采集控制（仅 Android）
+
+### API - setCollectControl(Object)
+
+在 SDK 初始化前设置数据采集控制（如是否采集 GAID）。**仅 Android。** 必须在 `initPushService()` 之前调用。
+
+#### 参数说明
+- Object（可选）：
+  - `gaid` (Boolean)：是否采集 Google 广告 ID，设为 `false` 可不采集。
+  - `aid` (Boolean)：是否采集 AndroidId，设为 `false` 可不采集。
+
+#### 调用说明
+请在 `initPushService()` 之前调用。不传参数或传空对象时，使用默认采集行为。
+
+#### 示例
+```javascript
+// 不采集 GAID 和 AndroidId（如隐私合规场景）
+mtpushModule.setCollectControl({ gaid: false, aid: false });
+
+// 仅不采集 GAID
+mtpushModule.setCollectControl({ gaid: false });
+
+// 仅不采集 AndroidId
+mtpushModule.setCollectControl({ aid: false });
+```
 
 ## 错误码
 

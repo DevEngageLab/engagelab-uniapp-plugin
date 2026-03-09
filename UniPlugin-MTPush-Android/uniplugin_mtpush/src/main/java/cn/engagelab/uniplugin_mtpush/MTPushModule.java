@@ -21,6 +21,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.engagelab.privates.core.api.MTCorePrivatesApi;
 import com.engagelab.privates.push.api.MTPushPrivatesApi;
 import com.engagelab.privates.common.global.MTGlobal;
+import com.engagelab.privates.push.api.MTPushCollectControl;
 import com.engagelab.privates.push.api.NotificationMessage;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -90,6 +91,37 @@ public class MTPushModule extends UniDestroyableModule {
         MTLogger.w("setEnableResetOnDeviceChange-----");
         updatePluginStatu();
         MTCorePrivatesApi.setEnableResetOnDeviceChange(mWXSDKInstance.getContext(), enable);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void setEnableUdp(boolean enable) {
+        MTLogger.w("setEnableUdp-----");
+        updatePluginStatu();
+        MTCorePrivatesApi.setEnableUdp(mWXSDKInstance.getContext(),enable);
+    }
+
+    /**
+     * 设置数据采集控制，需在 initPushService 之前调用。
+     * @param readableMap 可选参数：gaid(Boolean) - 是否采集 GAID；aid(Boolean) - 是否采集 AndroidId
+     */
+    @UniJSMethod(uiThread = true)
+    public void setCollectControl(JSONObject readableMap) {
+        MTLogger.w("setCollectControl-----");
+        updatePluginStatu();
+        try {
+            MTPushCollectControl control = new MTPushCollectControl();
+            if (readableMap != null) {
+                if (readableMap.containsKey("gaid")) {
+                    control.setGaid(readableMap.getBooleanValue("gaid"));
+                }
+                if (readableMap.containsKey("aid")) {
+                    control.setAid(readableMap.getBooleanValue("aid"));
+                }
+            }
+            MTPushPrivatesApi.setCollectControl(control);
+        } catch (Throwable e) {
+            MTLogger.e("setCollectControl error: " + e.getMessage());
+        }
     }
 
 

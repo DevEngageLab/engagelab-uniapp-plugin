@@ -47,6 +47,7 @@ UNI_EXPORT_METHOD(@selector(setLoggerEnable:))
 UNI_EXPORT_METHOD(@selector(getRegistrationID:))
 UNI_EXPORT_METHOD(@selector(setTcpSSL:))
 UNI_EXPORT_METHOD(@selector(setEnableResetOnDeviceChange:))
+UNI_EXPORT_METHOD(@selector(setEnableUdp:))
 
 #pragma -
 
@@ -113,6 +114,12 @@ UNI_EXPORT_METHOD(@selector(setEnableResetOnDeviceChange:))
 - (void)setEnableResetOnDeviceChange:(BOOL)enable {
     [self logger:@"setEnableResetOnDeviceChange" log:(enable?@"true":@"false")];
     [MTPushService enableResetOnDeviceChange:enable];
+}
+
+// 设置是否允许使用 UDP
+- (void)setEnableUdp:(BOOL)enable {
+    [self logger:@"setEnableUdp" log:(enable?@"true":@"false")];
+    [MTPushService setEnableUdp:enable];
 }
 
 

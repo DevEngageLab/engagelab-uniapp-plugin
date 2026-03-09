@@ -1,3 +1,9 @@
+V1.1.7
+- 1. iOS 更新到 5.3.1 版本，Android 更新到 5.3.0 版本
+- 2. 新增 API：setEnableUdp(Boolean) - 设置是否允许使用 UDP（iOS、Android），需在初始化前调用
+- 3. 新增 API：setCollectControl(Object) - 设置数据采集控制，支持 gaid、aid 配置（仅 Android），需在 initPushService 前调用
+- 4. 插件 Android 最低支持版本调整为 Android 6（API 23）
+
 V1.1.6
 - 1. iOS 更新到5.1.0版本，Android 更新到5.1.0版本
 - 2. 新增API：setEnableResetOnDeviceChange - 设置设备更换时是否重置RegistrationID

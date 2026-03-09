@@ -459,6 +459,52 @@ mtpushModule.setEnableResetOnDeviceChange(true);
 mtpushModule.setEnableResetOnDeviceChange(false);
 ```
 
+## Set Enable UDP
+
+### API - setEnableUdp(Boolean)
+
+Enable or disable UDP for push connection. Pass `true` to allow UDP, `false` to disallow.
+
+#### Parameter Description
+- Boolean: true - enable UDP, false - disable UDP
+
+#### Call Instructions
+Call before the initialization interface if you need to change the default behavior.
+
+#### Example
+```javascript
+// Enable UDP
+mtpushModule.setEnableUdp(true);
+
+// Disable UDP
+mtpushModule.setEnableUdp(false);
+```
+
+## Set Collect Control (Android)
+
+### API - setCollectControl(Object)
+
+Control data collection (e.g. GAID) before SDK initialization. **Android only.** Must be called before `initPushService()`.
+
+#### Parameter Description
+- Object (optional):
+  - `gaid` (Boolean): whether to collect Google Advertising ID; set to `false` to disable.
+  - `aid` (Boolean): whether to collect Android ID; set to `false` to disable.
+
+#### Call Instructions
+Call before `initPushService()`. If no parameter or empty object is passed, default collection behavior applies.
+
+#### Example
+```javascript
+// Disable GAID and AndroidId collection (e.g. for privacy compliance)
+mtpushModule.setCollectControl({ gaid: false, aid: false });
+
+// Disable GAID only
+mtpushModule.setCollectControl({ gaid: false });
+
+// Disable AndroidId only
+mtpushModule.setCollectControl({ aid: false });
+```
 
 ## error code
 
