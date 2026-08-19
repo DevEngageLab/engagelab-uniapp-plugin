@@ -1,3 +1,6 @@
+V1.1.8
+- Android SDK 更新至 5.4.3，支持 OPPO 与 vivo 厂商消息角标处理。
+
 V1.1.7
 - 1. iOS 更新到 5.3.1 版本，Android 更新到 5.3.0 版本
 - 2. 新增 API：setEnableUdp(Boolean) - 设置是否允许使用 UDP（iOS、Android），需在初始化前调用
