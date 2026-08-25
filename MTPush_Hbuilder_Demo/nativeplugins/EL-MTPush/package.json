@@ -1,7 +1,7 @@
 {
     "name": "EL-MTPush",
     "id": "EL-MTPush",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "description": "EngageLab Hbuilder plugin",
     "_dp_type":"nativeplugin",
     "_dp_nativeplugin":{
@@ -83,6 +83,8 @@
                 "android.permission.WRITE_EXTERNAL_STORAGE",
                 "android.permission.FOREGROUND_SERVICE",
                 "com.huawei.android.launcher.permission.CHANGE_BADGE",
+                "com.vivo.notification.permission.BADGE_ICON",
+                "com.vivo.abe.permission.launcher.notification.num",
                 "${applicationId}.permission.PROCESS_PUSH_MSG",
                 "${applicationId}.permission.PUSH_PROVIDER",
                 "${applicationId}.permission.PUSH_WRITE_PROVIDER",
