@@ -1,7 +1,7 @@
 {
     "name": "EL-MTPush",
     "id": "EL-MTPush",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "EngageLab Hbuilder plugin",
     "_dp_type":"nativeplugin",
     "_dp_nativeplugin":{
@@ -41,7 +41,7 @@
             },
             "parameters": {
                 "MTPUSH_APPKEY_IOS": {
-                    "des": "[iOS]EngageLab portal配置应用信息时分配的AppKey",
+                    "des": "[iOS]EngageLab portal配置应用信息时分配的AppKey，使用initPushServiceWithOptions动态传入时可留空",
                     "key": "MTPush:APP_KEY"
                 },
                 "MTPUSH_CHANNEL_IOS": {
@@ -57,7 +57,7 @@
                     "key": "MTPush:ADVERTISINGID"
                 },
                 "MTPUSH_DEFAULTINIT_IOS": {
-                    "des": "[iOS]是否默认初始化，是填true，不是填false或者不填",
+                    "des": "[iOS]是否默认初始化；使用initPushServiceWithOptions时建议填false或留空",
                     "key": "MTPush:DEFAULTINIT"
                 }
             }
@@ -108,7 +108,7 @@
             ],
             "parameters": {
                 "MTPUSH_APPKEY_ANDROID": {
-                    "des": "[Android]EngageLab portal配置应用信息时分配的AppKey",
+                    "des": "[Android]EngageLab portal配置应用信息时分配的AppKey，使用initPushServiceWithOptions动态设置时可留空",
                     "placeholder": "ENGAGELAB_PRIVATES_APPKEY"
                 },
                 "MTPUSH_CHANNEL_ANDROID":{

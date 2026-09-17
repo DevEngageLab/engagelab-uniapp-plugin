@@ -21,7 +21,15 @@
 			// mtpushModule.setCountryCode("US");
 			// mtpushModule.setTcpSSL(true)
 			mtpushModule.setLoggerEnable(true);
-			mtpushModule.initPushService();
+			// 初始化方式一：AppKey 已在插件配置中填写时使用。
+			// mtpushModule.initPushService();
+
+			// 初始化方式二：需要在运行时动态传入初始化参数时使用。
+			// 两种初始化方式二选一，请勿同时调用。
+			const appKey = uni.getSystemInfoSync().platform == "ios"
+				? "您的 iOS AppKey"
+				: "您的 Android AppKey";
+			mtpushModule.initPushServiceWithOptions({ appKey });
 			mtpushModule.addConnectEventListener(result=>{
 				let connectEnable = result.connectEnable
 				uni.$emit('connectStatusChange',connectEnable)

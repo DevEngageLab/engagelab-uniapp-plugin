@@ -1,3 +1,6 @@
+V1.2.3
+- Android、iOS 新增 API：initPushServiceWithOptions(Object)，支持动态传入初始化参数。
+
 V1.2.2
 - Android SDK 及厂商插件更新至 5.5.0，iOS SDK 保持 5.4.4。
 

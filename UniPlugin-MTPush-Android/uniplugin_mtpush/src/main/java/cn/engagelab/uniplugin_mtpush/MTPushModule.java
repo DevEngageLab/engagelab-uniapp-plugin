@@ -46,6 +46,7 @@ public class MTPushModule extends UniDestroyableModule {
 
     public static boolean isAppForeground = false;
     public static Context uniContext = null;
+    private static boolean pushInitialized = false;
 
     public void updatePluginStatu() {
         uniContext = mWXSDKInstance.getContext();
@@ -76,6 +77,12 @@ public class MTPushModule extends UniDestroyableModule {
         updatePluginStatu();
         MTCorePrivatesApi.configDebugMode(mWXSDKInstance.getContext(), enable);
         MTLogger.setLoggerEnable(enable);
+    }
+
+    @UniJSMethod(uiThread = true)
+    public void configAppKey(String appKey) {
+        updatePluginStatu();
+        MTCorePrivatesApi.configAppKey(mWXSDKInstance.getContext(), appKey);
     }
 
 
@@ -156,6 +163,19 @@ public class MTPushModule extends UniDestroyableModule {
 
         // init fcm
         initFcm();
+        pushInitialized = true;
+    }
+
+    /**
+     * Configures the Android AppKey and initializes the push service.
+     */
+    @UniJSMethod(uiThread = true)
+    public void initPushServiceWithOptions(JSONObject options) {
+        String appKey = options.getString("appKey");
+        configAppKey(appKey);
+        if (!pushInitialized) {
+            initPushService();
+        }
     }
 
     void initFcm() {

@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 初始化push
 - (void)initMTPushService:(NSDictionary *)launchOptions;
+- (void)initMTPushService:(NSDictionary *)launchOptions options:(NSDictionary *)options;
 
 - (void)addConnectEventObserver;
 

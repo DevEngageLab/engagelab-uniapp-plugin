@@ -147,12 +147,18 @@ UNI_EXPORT_METHOD(@selector(openSettingsForNotification:))
 
 
 UNI_EXPORT_METHOD(@selector(initPushService))
+UNI_EXPORT_METHOD(@selector(initPushServiceWithOptions:))
 UNI_EXPORT_METHOD(@selector(addConnectEventListener:))
 
 #pragma  初始化
 - (void)initPushService {
     [self logger:@"initMTPushService" log:nil];
     [[MTPushStore shared] initMTPushService:[MTPushStore shared].launchOptions];
+}
+
+- (void)initPushServiceWithOptions:(NSDictionary *)options {
+    [self logger:@"initMTPushServiceWithOptions" log:nil];
+    [[MTPushStore shared] initMTPushService:[MTPushStore shared].launchOptions options:options];
 }
 
 #pragma - 连接状态监听

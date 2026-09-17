@@ -35,7 +35,7 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 
 | 属性               | 描述                                            | 示例                               |
 | :----------------- | ----------------------------------------------- | ---------------------------------- |
-| MTPUSH_APPKEY_ANDROID | engagelab appkey (必填) | EngageLab portal配置应用信息时分配的AppKey  |
+| MTPUSH_APPKEY_ANDROID | engagelab appkey（使用 `initPushServiceWithOptions` 动态设置时可留空） | EngageLab portal配置应用信息时分配的AppKey  |
 | MTPUSH_CHANNEL_ANDROID | engagelab channel (选填) | 用于统计分发渠道，不需要可填默认值developer-default |
 | MTPUSH_PROCESS_ANDROID | Engagelabsdk work thread (必填) | Engagelab process，Engagelabsdk工作所在的进程，请填写 :remote  |
 |~~MTPUSH_SITENAME_ANDROID~~ | ~~android 数据中心的名称（选填）v1.1.1版本删除~~| ~~您在ipotal设置的数据中心的名称，不填默认新加坡数据中心~~ |
@@ -57,12 +57,12 @@ const jv = uni.requireNativePlugin('EL-MTPush');
 | MTPUSH_GOOGLE_PROJECT_ID  | G-拼接google-services.json下的project_id（选填）        | G-12345678 |
 | MTPUSH_GOOGLE_PROJECT_NUMBER  | G-拼接google-services.json下的project_number（选填）| G-12345678 |
 | MTPUSH_GOOGLE_STORAGE_BUCKET  | G-拼接google-services.json下的storage_bucket（选填）| G-12345678 |
-|MTPUSH_APPKEY_IOS| engagelab appkey (必填)| EngageLab portal配置应用信息时分配的AppKey |
+|MTPUSH_APPKEY_IOS| engagelab appkey（使用 `initPushServiceWithOptions` 动态传入时可留空）| EngageLab portal配置应用信息时分配的AppKey |
 |MTPUSH_CHANNEL_IOS| engagelab channel (选填) |用于统计分发渠道，不需要可填默认值developer-default|
-|MTPush_ISPRODUCTION_IOS|iOS 是否是生产环境（选填）|是填true,不是填false或者不填|
-|MTPush_ADVERTISINGID_IOS|iOS 广告标识符（IDFA）（选填）| 如果不需要使用IDFA，可不填|
+|MTPUSH_ISPRODUCTION_IOS|iOS 是否是生产环境（选填）|是填true,不是填false或者不填|
+|MTPUSH_ADVERTISINGID_IOS|iOS 广告标识符（IDFA）（选填）| 如果不需要使用IDFA，可不填|
 |~~MTPUSH_SITENAME_IOS~~| ~~iOS 数据中心的名称（选填）v1.1.1版本删除~~| ~~您在ipotal设置的数据中心的名称，不填默认新加坡数据中心~~ |
-|MTPush_DEFAULTINITPUSH_IOS| iOS 是否默认初始化（选填）|是填true，不是填false或者不填|
+|MTPUSH_DEFAULTINIT_IOS| iOS 是否默认初始化（选填）|使用 `initPushServiceWithOptions` 时建议填 false 或不填；否则可按需填写 true|
 
 
 #### Android 厂商配置说明

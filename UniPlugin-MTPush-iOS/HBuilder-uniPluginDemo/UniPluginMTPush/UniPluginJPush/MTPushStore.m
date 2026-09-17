@@ -10,6 +10,8 @@
 
 @interface MTPushStore ()
 
+@property (nonatomic, assign) BOOL pluginInitialized;
+
 @end
 
 @implementation MTPushStore
@@ -25,46 +27,66 @@
 
 // mtpush初始化
 - (void)initMTPushService:(NSDictionary *)launchOptions {
-    
+    [self initMTPushService:launchOptions options:@{}];
+}
+
+- (void)initMTPushService:(NSDictionary *)launchOptions options:(NSDictionary *)options {
     [self registerForRemoteNotificationConfig];
-    // 初始化sdk
-    [self setupWithOption:launchOptions];
-    // 监听透传消息
-    [self addCustomMessageObserver];
-    // 监听自定义消息
-    [self addInappMessageObserve];
-    // 监听增强提醒消息
-    [self addNotiInappMessageObserver];
+
+    [self setupWithOption:launchOptions options:options];
+
+    if (!self.pluginInitialized) {
+        // 监听透传消息
+        [self addCustomMessageObserver];
+        // 监听自定义消息
+        [self addInappMessageObserve];
+        // 监听增强提醒消息
+        [self addNotiInappMessageObserver];
+        self.pluginInitialized = YES;
+    }
 }
 
 #pragma mark - 初始化
-- (void)setupWithOption:(NSDictionary *)launchOptions {
+- (void)setupWithOption:(NSDictionary *)launchOptions options:(NSDictionary *)options {
 
     NSDictionary *launchingOption = launchOptions;
 
     NSString *path = [[NSBundle mainBundle]pathForResource:@"Info" ofType:@"plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    // appkey
-    NSString *appkey = dict[infoConfig_MTPush][infoConfig_MTPush_APP_KEY];
+    NSDictionary *config = dict[infoConfig_MTPush];
+    // appKey
+    NSString *appKey = options[@"appKey"];
+    if (![appKey isKindOfClass:[NSString class]] || appKey.length == 0) {
+        appKey = config[infoConfig_MTPush_APP_KEY];
+    }
     // channel
-    NSString *channel = dict[infoConfig_MTPush][infoConfig_MTPush_CHANNEL];
+    NSString *channel = options[@"channel"];
+    if (![channel isKindOfClass:[NSString class]] || channel.length == 0) {
+        channel = config[infoConfig_MTPush_CHANNEL];
+    }
     if (channel == nil ||channel.length == 0) {
         channel = @"developer-default";
     }
     // isProduction
+    id isProductionValue = options[@"isProduction"];
     BOOL isProduction = NO;
-    NSString *isProductionStr = dict[infoConfig_MTPush][infoConfig_MTPush_ISPRODUCTION];
-    if (isProductionStr == nil || isProductionStr.length == 0 || [isProductionStr isEqualToString:@"false"]) {
-        isProduction = NO;
-    }else if ([isProductionStr isEqualToString:@"true"]) {
-        isProduction = YES;
+    if (isProductionValue != nil && isProductionValue != [NSNull null]) {
+        isProduction = [isProductionValue boolValue];
+    } else {
+        NSString *isProductionStr = config[infoConfig_MTPush_ISPRODUCTION];
+        if ([isProductionStr isKindOfClass:[NSString class]] && [isProductionStr isEqualToString:@"true"]) {
+            isProduction = YES;
+        }
     }
     // advertisingId
-    NSString *advertisingId = dict[infoConfig_MTPush][infoConfig_MTPush_ADVERTISINGID];
+    NSString *advertisingId = options[@"advertisingId"];
+    if (![advertisingId isKindOfClass:[NSString class]] || advertisingId.length == 0) {
+        advertisingId = config[infoConfig_MTPush_ADVERTISINGID];
+    }
     if (![advertisingId isKindOfClass:[NSString class]] || advertisingId == nil || advertisingId.length == 0) {
         advertisingId = nil;
     }
-    [MTPushService setupWithOption:launchingOption appKey:appkey channel:channel apsForProduction:isProduction advertisingIdentifier:advertisingId];
+    [MTPushService setupWithOption:launchingOption appKey:appKey channel:channel apsForProduction:isProduction advertisingIdentifier:advertisingId];
 
 }
 

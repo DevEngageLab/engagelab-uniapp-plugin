@@ -5,6 +5,18 @@
 var mtpushModule = uni.requireNativePlugin("EL-MTPush");
 ```
 
+## 初始化推送
+
+插件提供两种初始化方式，请根据 AppKey 的配置方式选择其中一种，不要同时调用。
+
+### API - initPushService()
+
+AppKey 等参数已经在插件配置中填写时使用。该接口按插件配置初始化推送。
+
+```javascript
+mtpushModule.initPushService();
+```
+
 ## 设置 debug 模式
 
 ### API - setLoggerEnable(Boolean)
@@ -17,6 +29,36 @@ var mtpushModule = uni.requireNativePlugin("EL-MTPush");
 
 ```javascript
 mtpushModule.setLoggerEnable(true);
+```
+
+## 使用初始化参数启动推送
+
+### API - initPushServiceWithOptions(Object)
+
+需要在运行时动态传入 AppKey 或其他初始化参数时使用。
+
+- `appKey`：Android、iOS 必填。
+- `channel`：仅 iOS 可选，未传时读取插件配置。
+- `isProduction`：仅 iOS 可选，未传时读取插件配置。
+- `advertisingId`：仅 iOS 可选，未传时读取插件配置。
+
+Android 首次调用时配置 AppKey 并初始化推送，后续调用只更新 AppKey，不重复初始化。iOS 每次调用都会执行 SDK 的 `setupWithOption:appKey:...`。
+
+#### 示例
+
+```javascript
+// Android
+mtpushModule.initPushServiceWithOptions({
+    appKey: "Android AppKey"
+});
+
+// iOS
+mtpushModule.initPushServiceWithOptions({
+    appKey: "iOS AppKey",
+    channel: "developer-default",
+    isProduction: false,
+    advertisingId: ""
+});
 ```
 
 ## 设置 SiteName 
@@ -512,4 +554,3 @@ mtpushModule.setCollectControl({ aid: false });
 ## 错误码
 
 请参考[EngageLab官网](https://www.engagelab.com/)
-

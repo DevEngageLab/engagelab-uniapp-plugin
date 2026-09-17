@@ -35,7 +35,7 @@ Then configure each attribute. Please note that there may be chaos in HBuilderX.
 
 | Attributes               | Describtion                                       | Example示                              |
 | :----------------- | ----------------------------------------------- | ---------------------------------- |
-| MTPUSH_APPKEY_ANDROID | engagelab appkey (Required) | AppKey assigned when EngageLab portal configures application information  |
+| MTPUSH_APPKEY_ANDROID | engagelab appkey (optional when set dynamically with `initPushServiceWithOptions`) | AppKey assigned when EngageLab portal configures application information  |
 | MTPUSH_CHANNEL_ANDROID | engagelab channel (Optional) | Used for statistics distribution channels, no need to fill in the default value `developer-default` |
 | MTPUSH_PROCESS_ANDROID | Engagelabsdk work thread (Required) | The process where Engagelabsdk works, please fill in `:remote` |
 |~~MTPUSH_SITENAME_ANDROID~~ | ~~android Data center name（Optional）deleted in v1.1.1~~| ~~The name of the data center you set in ipotal. Leave the default `Singapore` data center blank.~~ |
@@ -57,12 +57,12 @@ Then configure each attribute. Please note that there may be chaos in HBuilderX.
 | MTPUSH_GOOGLE_PROJECT_ID  | G-splicing `project_id` under google-services.json（Optional）        | G-12345678 |
 | MTPUSH_GOOGLE_PROJECT_NUMBER  | G-splicing `project_number` under google-services.json（Optional）| G-12345678 |
 | MTPUSH_GOOGLE_STORAGE_BUCKET  | G-splicing `storage_bucket` under google-services.json（Optional）| G-12345678 |
-|MTPUSH_APPKEY_IOS| engagelab appkey (Required)| AppKey assigned when EngageLab portal configures application information |
+|MTPUSH_APPKEY_IOS| engagelab appkey (optional when passed dynamically with `initPushServiceWithOptions`)| AppKey assigned when EngageLab portal configures application information |
 |MTPUSH_CHANNEL_IOS| engagelab channel (Optional) |Used for statistics distribution channels, no need to fill in the default value `developer-default`|
-|MTPush_ISPRODUCTION_IOS|iOS - production environment or not（Optional）|For production environment, fill in true, otherwise fill in false|
-|MTPush_ADVERTISINGID_IOS|iOS - advertising identifier（IDFA）（Optional）| If you do not need to use IDFA, you can leave it blank.|
+|MTPUSH_ISPRODUCTION_IOS|iOS - production environment or not（Optional）|For production environment, fill in true, otherwise fill in false|
+|MTPUSH_ADVERTISINGID_IOS|iOS - advertising identifier（IDFA）（Optional）| If you do not need to use IDFA, you can leave it blank.|
 |~~MTPUSH_SITENAME_IOS~~| ~~iOS Data center name（Optional）deleted in v1.1.1~~| ~~The name of the data center you set in ipotal. Leave the default `Singapore` data center blank.~~ |
-|MTPush_DEFAULTINITPUSH_IOS| iOS - initialized by default（Optional）|If you want to initialize automatically, fill in True. If not, fill in false or leave it blank.|
+|MTPUSH_DEFAULTINIT_IOS| iOS - initialized by default（Optional）|When using `initPushServiceWithOptions`, use false or leave it blank; otherwise set true only when automatic initialization is required.|
 
 
 #### Android Manufacturer configuration instructions
