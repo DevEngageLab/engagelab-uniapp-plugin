@@ -168,6 +168,38 @@ mtpushModule.addCustomMessageListener(result=>{
 			})
 ```
 
+## Generic command result callback (Android only)
+
+### API - addCommandResultListener(CALLBACK)
+
+Listens for generic command results. Xiaomi message channel subscription results are returned through this callback.
+
+#### Parameters
+
+|Parameter Name|Parameter Type|Parameter Description|
+|:-----:|:----:|:-----:|
+|cmd|number|Always `2012` for Xiaomi channel subscription|
+|errorCode|number|Xiaomi's overall result; `0` means the dialog was displayed and user choices were returned, not that every channel succeeded|
+|msg|string|Result description; currently usually empty for this command|
+|extra|dictionary|Xiaomi fields, plus `subscribe_code` (same as `errorCode`) and `platform` (`1` for Xiaomi)|
+
+`errorCode` values: `-100` unsupported; `-200` authentication failed; `-300` app not foreground or screen off; `-400` another request is in progress; `-500` frequency limited; `-600` invalid parameters; `-700` user cancelled; `-800` no notification permission; `-900` unknown error; `-10000` Xiaomi Push is not registered; `-2147483648` Xiaomi SDK invocation exception.
+
+When `errorCode` is `0`, `extra.open_channel_result`, when supplied by Xiaomi, is a JSON string containing per-channel results. Per-channel `code` values: `100` created successfully, `-100` creation failed, `-200` rejected, `-300` already created and enabled, `-400` already created but disabled, and `-500` invalid channel.
+
+#### Example
+
+```javascript
+mtpushModule.addCommandResultListener(result => {
+  if (result.cmd === 2012) {
+    console.log('Subscription result', result.errorCode, result.extra)
+    if (result.errorCode === 0 && result.extra.open_channel_result) {
+      console.log('Per-channel results', JSON.parse(result.extra.open_channel_result))
+    }
+  }
+})
+```
+
 ## Tag alias event callback
 
 ### API - addTagAliasListener(CALLBACK)
@@ -228,6 +260,30 @@ mtpushModule.addInMessageListener(result=>{
 					let extras = result.extras
 					let eventType = result.eventType
 				})
+```
+
+
+## Subscribe to Xiaomi message channels (Android only)
+
+### API - requestSubscribeChannel(Array)
+
+Requests subscription to one or more Xiaomi message channels. This feature currently supports only the Xiaomi
+channel. Register the result callback with `addCommandResultListener` first.
+See the [EngageLab Android SDK documentation](https://www.engagelab.com/zh_CN/docs/app-push/developer-guide/client-sdk-reference/android-sdk/sdk-api-guide#requestsubscribechannel) for the native behavior and limits.
+
+#### Parameters
+
+- `channelIds`: Array of subscription channel IDs created in the Xiaomi Push console. At most three IDs can be passed per call; Xiaomi discards additional entries
+
+The dialog can be requested at most once every 30 seconds. The same channel can be requested at most twice per month; exceeding the limit returns `-500`.
+
+#### Example
+
+```javascript
+mtpushModule.requestSubscribeChannel([
+  'channel_id_1',
+  'channel_id_2'
+])
 ```
 
 
@@ -509,4 +565,3 @@ mtpushModule.setCollectControl({ aid: false });
 ## error code
 
 refer to [EngageLab](https://www.engagelab.com/)
-

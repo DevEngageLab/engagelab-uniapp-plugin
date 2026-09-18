@@ -28,6 +28,7 @@ import com.google.firebase.FirebaseOptions;
 import com.taobao.weex.bridge.JSCallback;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -345,6 +346,15 @@ public class MTPushModule extends UniDestroyableModule {
     }
 
     @UniJSMethod(uiThread = true)
+    public void addCommandResultListener(JSCallback callback) {
+        updatePluginStatu();
+        if (callback != null) {
+            MTLogger.w("addCommandResultListener");
+            MTPushHelper.eventCallback.put(MTConstants.COMMAND_EVENT, callback);
+        }
+    }
+
+    @UniJSMethod(uiThread = true)
     public void addNotificationListener(JSCallback callback) {
         updatePluginStatu();
         if (callback != null) {
@@ -429,6 +439,23 @@ public class MTPushModule extends UniDestroyableModule {
         } else {
             MTLogger.w("there are no " + MTConstants.TAGS);
         }
+    }
+
+    /**
+     * 请求订阅小米消息频道，结果通过 addCommandResultListener 返回。
+     */
+    @UniJSMethod(uiThread = true)
+    public void requestSubscribeChannel(JSONArray channelIds) {
+        updatePluginStatu();
+        if (channelIds == null) {
+            MTLogger.w(MTConstants.PARAMS_NULL);
+            return;
+        }
+        ArrayList<String> channels = new ArrayList<>();
+        for (int i = 0; i < channelIds.size(); i++) {
+            channels.add(channelIds.getString(i));
+        }
+        MTPushPrivatesApi.requestSubscribeChannel(mWXSDKInstance.getContext(), channels);
     }
 
     @UniJSMethod(uiThread = true)

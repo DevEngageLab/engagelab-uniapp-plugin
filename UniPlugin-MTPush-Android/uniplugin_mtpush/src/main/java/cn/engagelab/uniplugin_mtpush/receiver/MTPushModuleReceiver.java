@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.engagelab.privates.common.component.MTCommonReceiver;
 import com.engagelab.privates.core.api.WakeMessage;
 import com.engagelab.privates.push.api.AliasMessage;
+import com.engagelab.privates.push.api.CmdMessage;
 import com.engagelab.privates.push.api.CustomMessage;
 import com.engagelab.privates.push.api.InAppMessage;
 import com.engagelab.privates.push.api.MobileNumberMessage;
@@ -91,21 +92,22 @@ public class MTPushModuleReceiver extends MTCommonReceiver {
         MTLogger.d("onPlatformToken:" + platformMessage.toString());
     }
 
-    //    @Override
-//    public void onRegister(Context context, String registrationId) {
-//        MTLogger.d("onRegister:" + registrationId);
-//    }
-//
-//    @Override
-//    public void onCommandResult(Context context, CmdMessage message) {
-//        MTLogger.d("onCommandResult:" + message.toString());
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put(MTConstants.COMMAND, message.cmd);
-//        jsonObject.put(MTConstants.COMMAND_EXTRA, message.extra.toString());
-//        jsonObject.put(MTConstants.COMMAND_MESSAGE, message.msg);
-//        jsonObject.put(MTConstants.COMMAND_RESULT, message.errorCode);
-//        MTPushHelper.sendEvent(MTConstants.COMMAND_EVENT, jsonObject);
-//    }
+    @Override
+    public void onCommandResult(Context context, CmdMessage message) {
+        MTLogger.d("onCommandResult:" + message.toString());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("cmd", message.cmd);
+        jsonObject.put("errorCode", message.errorCode);
+        jsonObject.put("msg", message.msg);
+        JSONObject extra = new JSONObject();
+        if (message.extra != null) {
+            for (String key : message.extra.keySet()) {
+                extra.put(key, message.extra.get(key));
+            }
+        }
+        jsonObject.put("extra", extra);
+        MTPushHelper.sendEvent(MTConstants.COMMAND_EVENT, jsonObject);
+    }
 
 
     @Override
