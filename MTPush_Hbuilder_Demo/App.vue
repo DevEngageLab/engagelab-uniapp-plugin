@@ -4,6 +4,11 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			// #ifdef APP-ANDROID
+			mtpushModule.addCommandResultListener(result => {
+				if (result.cmd === 2013) console.log('vivo 订阅最终结果', result)
+			})
+			// #endif
 			if(uni.getSystemInfoSync().platform == "ios"){
 				
 				mtpushModule.requestNotificationAuthorization((result)=>{

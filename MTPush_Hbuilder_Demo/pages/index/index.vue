@@ -26,6 +26,9 @@
 		</br>
 		</br>
 		</br>
+		<!-- #ifdef APP-ANDROID -->
+		<button size="mini" type="primary" @click="requestVivoSubscribeChannel">vivo 通知渠道订阅</button>
+		<!-- #endif -->
 		<label>---------------Tags/Alias------------------</label>
 		</br>
 		</br>
@@ -130,6 +133,13 @@
 				})	
 			},
 			
+			requestVivoSubscribeChannel() {
+				// #ifdef APP-ANDROID
+				// 初始化并开启通知权限后，将 ID 替换为 vivo 后台的通知渠道 ID。
+				mtpushModule.requestVivoSubscribeChannel(["your_vivo_channel_id"])
+				// #endif
+			},
+
 			setEnableResetOnDeviceChange() {
 				mtpushModule.setEnableResetOnDeviceChange(true)
 				this.showToast({message: '已启用设备迁移功能'})
