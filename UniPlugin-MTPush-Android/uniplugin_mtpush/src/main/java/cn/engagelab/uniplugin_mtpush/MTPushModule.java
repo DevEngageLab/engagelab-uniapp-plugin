@@ -442,8 +442,24 @@ public class MTPushModule extends UniDestroyableModule {
     }
 
     /**
-     * 请求订阅小米消息频道，结果通过 addCommandResultListener 返回。
+     * 请求订阅 vivo 通知渠道，最终结果通过 addCommandResultListener 返回。
      */
+    @UniJSMethod(uiThread = true)
+    public void requestVivoSubscribeChannel(JSONArray channelIds) {
+        if (!"vivo".equalsIgnoreCase(android.os.Build.MANUFACTURER)) return;
+        updatePluginStatu();
+        android.content.Context context = mWXSDKInstance.getContext();
+        while (context instanceof android.content.ContextWrapper && !(context instanceof android.app.Activity)) {
+            android.content.Context next = ((android.content.ContextWrapper) context).getBaseContext();
+            if (next == context) break;
+            context = next;
+        }
+        if (!(context instanceof android.app.Activity)) throw new IllegalStateException("A foreground Activity is required");
+        ArrayList<String> channels = new ArrayList<String>();
+        if (channelIds != null) for (int i = 0; i < channelIds.size(); i++) channels.add(channelIds.getString(i));
+        MTPushPrivatesApi.requestVivoSubscribeChannel((android.app.Activity) context, channels);
+    }
+
     @UniJSMethod(uiThread = true)
     public void requestSubscribeChannel(JSONArray channelIds) {
         updatePluginStatu();
